@@ -242,6 +242,7 @@ body {
   text-underline-offset: 4px;
   transition: color 0.3s ease;
   display: inline-block;
+
 }
 
 .cta-link:hover {
@@ -394,7 +395,7 @@ body {
 
 .stepped-small {
   width: 60%;
-  height: 25%;
+  height: 30%;
   overflow: hidden;
 }
 
@@ -439,6 +440,7 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
+  margin-top: 150px;
 }
 
 .image-grid-stepped-triple .stepped-small {
