@@ -7,10 +7,10 @@ import ContactSection from './components/ContactSection';
 
 export default function Home() {
   const sections = [
-    { number: '00', label: 'hero', name: 'Home' },
-    { number: '01', label: 'about', name: 'About Us' },
-    { number: '02', label: 'services', name: 'Our Services' },
-    { number: '03', label: 'contact', name: 'Get in Touch' },
+    { number: '00', label: 'Welcome', name: 'Home' },
+    { number: '01', label: 'Our Mission', name: 'About Us' },
+    { number: '02', label: 'What We Offer', name: 'Our Services' },
+    { number: '03', label: 'Get In Touch', name: 'Contact' },
   ];
 
   return (
@@ -21,8 +21,8 @@ export default function Home() {
         {/* Hero Section */}
         <HeroSection
           title="Welcome to Bev Rage"
-          subtitle="True hospitality is a gesture of love and thrives when people benefit from it."
-          ctaText="Discover Our Story"
+          subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          ctaText="About Bev-Rage"
           ctaLink="#about"
         />
 
@@ -30,7 +30,7 @@ export default function Home() {
         <SectionPatternB
           sectionNumber="01"
           sectionLabel="about"
-          headline='Crafting exceptional experiences since 2024.'
+          headline='Crafting exceptional experiences for 25 years.'
           bodyText={[
             'We believe in creating memorable moments',
             'through thoughtful service and attention to detail.',
@@ -46,13 +46,11 @@ export default function Home() {
         <SectionPatternB
           sectionNumber="02"
           sectionLabel="services"
-          headline="Tailored solutions for every occasion."
+          headline="Specialty drink services tailored to your event needs."
           bodyText={[
-            'From intimate gatherings to large celebrations,',
-            'we provide comprehensive services that exceed',
-            'expectations. Our expertise spans event planning,',
-            'catering, and venue management with a focus',
-            'on creating unforgettable experiences.',
+            'Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
           ]}
           ctaText="View Services"
           ctaLink="#services"
@@ -60,11 +58,11 @@ export default function Home() {
 
         {/* Contact/FAQ Section - Color Block Pattern */}
         <ContactSection
-          ctaTitle="Got Questions or Ready to Book?"
+          ctaTitle="Have questions? Ready to Book?"
           ctaText="Get in Touch"
           ctaLink="#contact"
-          email="hello@bevrage.com"
-          phone="+1 (555) 123-4567"
+          email="events@bevrage.com"
+          phone="+1 (301) 233-3161"
           faqItems={[
             { question: 'What services do you offer?', answer: 'We offer comprehensive event planning and catering services including custom drink bars, beverage catering, and event coordination for weddings, corporate events, and private celebrations.' },
             { question: 'How far in advance should I book?', answer: 'We recommend booking 3-6 months in advance for peak season events (May-October). For off-season dates, 2-3 months notice is typically sufficient.' },
