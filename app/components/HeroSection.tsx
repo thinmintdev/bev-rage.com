@@ -53,6 +53,9 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink }: HeroS
         variants={containerVariants}
       >
         <div className="content-wrapper">
+          <motion.div className="hero-logo-text" variants={itemVariants}>
+            br
+          </motion.div>
           <motion.h1 className="hero-title" variants={itemVariants}>
             {title}
           </motion.h1>

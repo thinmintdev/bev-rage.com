@@ -179,6 +179,17 @@ body {
   margin-bottom: 40px;
 }
 
+.hero-logo-text {
+  font-family: var(--font-serif);
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-brown-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -2px;
+}
+
 .hero-title {
   font-family: var(--font-serif);
   font-size: 84px;
@@ -459,7 +470,7 @@ body {
   text-transform: uppercase;
   position: absolute;
   left: 40px;
-  top: 50%;
+  top: 80%;
   transform: translateY(-50%);
 }
 
@@ -470,18 +481,31 @@ body {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-dark);
+  color: var(--color-brown-light);
   cursor: pointer;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: color 0.3s ease;
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 8px;
 }
 
 .btn-request:hover,
 .btn-menu:hover {
   color: var(--color-burgundy);
+}
+
+.hamburger-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-brown-light);
+  transition: color 0.3s ease;
+}
+
+.fixed-header.menu-open .hamburger-icon {
+  color: var(--color-beige);
 }
 
 /* ==========================================================================
