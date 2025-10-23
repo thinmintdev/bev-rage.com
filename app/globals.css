@@ -405,8 +405,9 @@ body {
 
 .image-grid-stepped-triple .stepped-large {
   width: 60%;
-  align-self: flex-end;
+  align-self: flex-start;
   margin-top: -60px;
+  margin-left: 25%
 }
 
 .image-grid-stepped-triple .stepped-medium {
@@ -833,7 +834,7 @@ body {
 
 .footer-info-left {
   width: 43%;
-  padding: var(--spacing-lg) 40px;
+  padding: var(--spacing-lg) 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -841,7 +842,7 @@ body {
 
 .footer-info-right {
   width: 57%;
-  padding: var(--spacing-lg) 40px;
+  padding: var(--spacing-lg) 60px;
   background: var(--color-beige);
   display: flex;
   flex-direction: column;
@@ -1347,7 +1348,7 @@ select.form-input {
   .footer-info-left,
   .footer-info-right {
     width: 100% !important;
-    padding: 40px 20px;
+    padding: 40px 30px;
   }
 
   .contact-section h3 {
@@ -1584,7 +1585,7 @@ select.form-input {
   .footer-info-left,
   .footer-info-right {
     width: 50% !important;
-    padding: 60px 30px;
+    padding: 60px 40px;
   }
 
   /* Navigation - Tablet */
