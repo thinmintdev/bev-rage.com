@@ -37,38 +37,51 @@ export default function NavMenu({ isOpen, onClose, sections }: NavMenuProps) {
     // Calculate the section index (00, 01, 02, 03)
     const sectionIndex = parseInt(sectionNumber, 10);
 
-    // Get viewport width for calculating scroll position
-    const viewportWidth = window.innerWidth;
+    // Check if mobile/tablet (< 1024px)
+    const isMobile = window.innerWidth < 1024;
 
-    // Calculate the vertical scroll position needed
-    // Since GSAP uses vertical scroll to drive horizontal translation
-    const bodyHeight = document.body.offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const maxScroll = bodyHeight - viewportHeight;
+    if (isMobile) {
+      // Mobile/Tablet: Direct scroll to section element
+      const sections = document.querySelectorAll('.section');
+      const targetSection = sections[sectionIndex];
 
-    // Get all sections to calculate their positions
-    const sections = document.querySelectorAll('.section');
-    let targetX = 0;
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    } else {
+      // Desktop: Use horizontal scroll calculation
+      const viewportWidth = window.innerWidth;
+      const bodyHeight = document.body.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const maxScroll = bodyHeight - viewportHeight;
 
-    for (let i = 0; i < sectionIndex && i < sections.length; i++) {
-      targetX += (sections[i] as HTMLElement).offsetWidth;
+      // Get all sections to calculate their positions
+      const sections = document.querySelectorAll('.section');
+      let targetX = 0;
+
+      for (let i = 0; i < sectionIndex && i < sections.length; i++) {
+        targetX += (sections[i] as HTMLElement).offsetWidth;
+      }
+
+      // Calculate the scroll position based on the target X position
+      const totalWidth = Array.from(sections).reduce(
+        (total, section) => total + (section as HTMLElement).offsetWidth,
+        0
+      );
+      const scrollDistance = totalWidth - viewportWidth;
+
+      // Convert target X to scroll Y position
+      const scrollY = (targetX / scrollDistance) * maxScroll;
+
+      // Scroll to the target section (vertical scroll drives horizontal movement)
+      window.scrollTo({
+        top: scrollY,
+        behavior: 'smooth',
+      });
     }
-
-    // Calculate the scroll position based on the target X position
-    const totalWidth = Array.from(sections).reduce(
-      (total, section) => total + (section as HTMLElement).offsetWidth,
-      0
-    );
-    const scrollDistance = totalWidth - viewportWidth;
-
-    // Convert target X to scroll Y position
-    const scrollY = (targetX / scrollDistance) * maxScroll;
-
-    // Scroll to the target section (vertical scroll drives horizontal movement)
-    window.scrollTo({
-      top: scrollY,
-      behavior: 'smooth',
-    });
 
     // Close menu after navigation
     onClose();

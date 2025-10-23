@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import NavMenu from './NavMenu';
 
 interface HeaderProps {
@@ -11,19 +10,45 @@ interface HeaderProps {
 export default function Header({ sections = [] }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToHome = () => {
+    const isMobile = window.innerWidth < 1024;
+
+    if (isMobile) {
+      // Mobile/Tablet: Scroll to first section
+      const sectionElements = document.querySelectorAll('.section');
+      const firstSection = sectionElements[0];
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Desktop: Scroll to top (which shows first section in horizontal scroll)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className={`fixed-header ${isMenuOpen ? 'menu-open' : ''}`}>
-        <div className="brand-text">Bev-Rage | Specialty Drink Bars</div>
-        <Link href="/" className="logo">
+        <button onClick={scrollToHome} className="brand-text-link">
+          <div className="brand-text">
+            <span className="brand-text">Bev-Rage</span>
+            <span className="brand-separator">&nbsp;|&nbsp;</span>
+            <span className="brand-tagline">Specialty Drink Bars</span>
+          </div>
+        </button>
+        <button onClick={scrollToHome} className="logo">
           <span className="logo-text">br</span>
-        </Link>
+        </button>
         <button
           className="btn-menu"
-          onClick={() => setIsMenuOpen(true)}
-          aria-label="Open menu"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          MENU
+          <svg className="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
         </button>
       </header>
 
