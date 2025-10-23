@@ -5,7 +5,6 @@ interface ContactSectionProps {
   ctaTitle: string;
   ctaText: string;
   ctaLink: string;
-  address: string[];
   email: string;
   phone: string;
   faqItems?: Array<{ question: string; answer: string }>;
@@ -15,7 +14,6 @@ export default function ContactSection({
   ctaTitle,
   ctaText,
   ctaLink,
-  address,
   email,
   phone,
   faqItems,
@@ -36,13 +34,6 @@ export default function ContactSection({
       <div className="footer-info">
         {/* First column - Contact Information */}
         <div className="footer-info-left">
-          <div className="contact-section">
-            <h3>ADDRESS</h3>
-            {address.map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
-          </div>
-
           <div className="contact-section">
             <h3>CONTACTS</h3>
             <a href={`mailto:${email}`}>{email}</a>

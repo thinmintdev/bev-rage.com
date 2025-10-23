@@ -60,10 +60,9 @@ export default function Home() {
 
         {/* Contact/FAQ Section - Color Block Pattern */}
         <ContactSection
-          ctaTitle="Time to make your dreams come true."
+          ctaTitle="Have Questions or Ready to Book?"
           ctaText="Get in Touch"
           ctaLink="#contact"
-          address={['123 Main Street', 'City, State 12345', 'United States']}
           email="hello@bevrage.com"
           phone="+1 (555) 123-4567"
           faqItems={[
