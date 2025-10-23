@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, ReactNode } from 'react';
+import { useEffect, useRef, ReactNode, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -13,6 +13,24 @@ interface HorizontalScrollProps {
 export default function HorizontalScroll({ children }: HorizontalScrollProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if viewport is mobile/tablet (< 1024px)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -20,7 +38,15 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
 
     if (!container || !main) return;
 
-    // Calculate total width
+    // Skip horizontal scroll setup on mobile/tablet
+    if (isMobile) {
+      // Reset any transformations
+      gsap.set(main, { x: 0 });
+      document.body.style.height = '';
+      return;
+    }
+
+    // Desktop: Calculate total width for horizontal scroll
     const sections = main.querySelectorAll('.section');
     let totalWidth = 0;
     sections.forEach((section) => {
@@ -29,7 +55,7 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
 
     const scrollDistance = totalWidth - window.innerWidth;
 
-    // Set body height to enable vertical scrolling
+    // Set body height to enable vertical scrolling that drives horizontal movement
     document.body.style.height = `${scrollDistance + window.innerHeight}px`;
 
     // Create horizontal scroll animation
@@ -51,7 +77,7 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       document.body.style.height = '';
     };
-  }, [children]);
+  }, [children, isMobile]);
 
   return (
     <div ref={containerRef} className="scroll-container">
