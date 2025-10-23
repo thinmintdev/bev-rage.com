@@ -447,7 +447,7 @@ body {
   color: var(--color-brown-light);
   display: block;
   line-height: 1;
-  padding-top: 8px;
+  padding-top: 40px;
 }
 
 .brand-text {
@@ -459,6 +459,8 @@ body {
   text-transform: uppercase;
   position: absolute;
   left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .btn-request,
@@ -473,6 +475,8 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .btn-request:hover,
