@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import NavMenu from './NavMenu';
 
 interface HeaderProps {
@@ -11,19 +10,35 @@ interface HeaderProps {
 export default function Header({ sections = [] }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToHome = () => {
+    const isMobile = window.innerWidth < 1024;
+
+    if (isMobile) {
+      // Mobile/Tablet: Scroll to first section
+      const sectionElements = document.querySelectorAll('.section');
+      const firstSection = sectionElements[0];
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Desktop: Scroll to top (which shows first section in horizontal scroll)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className={`fixed-header ${isMenuOpen ? 'menu-open' : ''}`}>
-        <Link href="/" className="brand-text-link">
+        <button onClick={scrollToHome} className="brand-text-link">
           <div className="brand-text">
             <span className="brand-text">Bev-Rage</span>
             <span className="brand-separator"> | </span>
             <span className="brand-tagline">Specialty Drink Bars</span>
           </div>
-        </Link>
-        <Link href="/" className="logo">
+        </button>
+        <button onClick={scrollToHome} className="logo">
           <span className="logo-text">br</span>
-        </Link>
+        </button>
         <button
           className="btn-menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
