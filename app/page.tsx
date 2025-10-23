@@ -1,65 +1,79 @@
-import Image from "next/image";
+import Header from './components/Header';
+import HorizontalScroll from './components/HorizontalScroll';
+import ScrollIndicator from './components/ScrollIndicator';
+import HeroSection from './components/HeroSection';
+import SectionPatternB from './components/SectionPatternB';
+import ContactSection from './components/ContactSection';
 
 export default function Home() {
+  const sections = [
+    { number: '00', label: 'hero', name: 'Home' },
+    { number: '01', label: 'about', name: 'About Us' },
+    { number: '02', label: 'services', name: 'Our Services' },
+    { number: '03', label: 'contact', name: 'Get in Touch' },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Header />
+
+      <HorizontalScroll>
+        {/* Hero Section */}
+        <HeroSection
+          title="Welcome to Bev Rage"
+          subtitle="True hospitality is a gesture of love and thrives when people benefit from it."
+          ctaText="Discover Our Story"
+          ctaLink="#about"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* About Section - Pattern B (Text Left, Images Right) */}
+        <SectionPatternB
+          sectionNumber="01"
+          sectionLabel="about"
+          headline='Crafting exceptional experiences since 2024.'
+          bodyText={[
+            'We believe in creating memorable moments',
+            'through thoughtful service and attention to detail.',
+            'Our team is dedicated to excellence in',
+            'everything we do, from the smallest gesture',
+            'to the grandest celebration.',
+          ]}
+          ctaText="Our Story"
+          ctaLink="#story"
+        />
+
+        {/* Services Section - Pattern B (Text Left, Images Right) */}
+        <SectionPatternB
+          sectionNumber="02"
+          sectionLabel="services"
+          headline="Tailored solutions for every occasion."
+          bodyText={[
+            'From intimate gatherings to large celebrations,',
+            'we provide comprehensive services that exceed',
+            'expectations. Our expertise spans event planning,',
+            'catering, and venue management with a focus',
+            'on creating unforgettable experiences.',
+          ]}
+          ctaText="View Services"
+          ctaLink="#services"
+        />
+
+        {/* Contact/FAQ Section - Color Block Pattern */}
+        <ContactSection
+          ctaTitle="Time to make your dreams come true."
+          ctaText="Get in Touch"
+          ctaLink="#contact"
+          address={['123 Main Street', 'City, State 12345', 'United States']}
+          email="hello@bevrage.com"
+          phone="+1 (555) 123-4567"
+          faqItems={[
+            { question: 'What services do you offer?', answer: 'We offer comprehensive event planning and catering services.' },
+            { question: 'How far in advance should I book?', answer: 'We recommend booking 3-6 months in advance.' },
+          ]}
+        />
+      </HorizontalScroll>
+
+      <ScrollIndicator sections={sections} />
+    </>
   );
 }
