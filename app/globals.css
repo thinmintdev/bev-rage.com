@@ -181,7 +181,7 @@ body {
 
 .hero-logo-text {
   font-family: 'Pacifico', cursive;
-  font-size: 180px;
+  font-size: 16rem;
   font-weight: 400;
   line-height: 1;
   color: var(--color-brown-dark);
@@ -196,6 +196,7 @@ body {
   line-height: 1.1;
   color: var(--color-brown-dark);
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .section-heading {
@@ -214,6 +215,7 @@ body {
   color: var(--color-brown-light);
   margin-bottom: 40px;
   max-width: 500px;
+  text-align: center;
 }
 
 .body-content {
@@ -234,8 +236,8 @@ body {
 
 .cta-link {
   font-family: var(--font-sans);
-  font-size: 18px;
-  color: var(--color-dark);
+  font-size: 20px;
+  color: var(--color-brown-light);
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.3s ease;
@@ -246,12 +248,53 @@ body {
   color: var(--color-burgundy);
 }
 
+.cta-link-small {
+  font-size: 16px;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.cta-link-small:hover {
+  opacity: 1;
+}
+
 .cta-link.light {
   color: var(--color-white);
 }
 
 .cta-link.light:hover {
   color: var(--color-beige);
+}
+
+/* Hero CTA Group - Inline layout for link and button */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Hero Button - Light minimal design */
+.hero-button {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  padding: 10px 24px;
+  background-color: transparent;
+  color: var(--color-brown-light);
+  border: 1px solid var(--color-brown-light);
+  border-radius: 24px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  background-color: var(--color-brown-light);
+  color: var(--color-beige);
+  border-color: var(--color-brown-light);
+  transform: scale(1.05);
 }
 
 /* ==========================================================================
@@ -1175,9 +1218,10 @@ select.form-input {
 
   /* Typography - Mobile scaling */
   .hero-title {
-    font-size: 42px;
+    font-size: 64px;
     line-height: 1.1;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   .section-heading {
@@ -1207,6 +1251,26 @@ select.form-input {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .cta-link-small {
+    font-size: 14px;
+    min-height: 44px;
+    padding: 0 8px;
+  }
+
+  .hero-cta-group {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    min-height: 44px;
+    text-align: center;
   }
 
   /* Images - Simplified mobile layouts */
@@ -1531,6 +1595,16 @@ select.form-input {
 
   .body-content p {
     font-size: 18px;
+  }
+
+  .hero-cta-group {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .hero-button {
+    font-size: 17px;
+    padding: 10px 22px;
   }
 
   /* Images - Tablet layout */

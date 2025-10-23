@@ -20,11 +20,13 @@ export default function Home() {
       <HorizontalScroll>
         {/* Hero Section */}
         <HeroSection
-          title="Welcome to Bev Rage"
+          title="BevRage"
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          ctaText="About Bev-Rage"
+          ctaText="Learn more"
           ctaLink="#about"
           imageSrc="/stock/opt/282179354-min.jpeg"
+          buttonText="Get Started"
+          buttonLink="#contact"
         />
 
         {/* About Section - Pattern B (Text Left, Images Right) */}
