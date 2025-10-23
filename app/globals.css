@@ -446,6 +446,8 @@ body {
   font-size: 64px;
   color: var(--color-brown-light);
   display: block;
+  line-height: 1;
+  padding-top: 8px;
 }
 
 .brand-text {
