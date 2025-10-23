@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header sections={sections} />
 
       <HorizontalScroll>
         {/* Hero Section */}
