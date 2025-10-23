@@ -974,7 +974,6 @@ select.form-input {
 
   /* Section Layout - Stack vertically */
   .section,
-  .hero-section,
   .content-section,
   .footer-section {
     flex-direction: column;
@@ -982,6 +981,15 @@ select.form-input {
     height: auto;
     min-height: auto;
     padding: 60px 20px;
+  }
+
+  /* Hero section needs extra top padding for fixed header */
+  .hero-section {
+    flex-direction: column;
+    width: 100vw !important;
+    height: auto;
+    min-height: auto;
+    padding: 100px 20px 60px 20px;
   }
 
   /* Pattern layouts - Full width columns */
@@ -1268,7 +1276,6 @@ select.form-input {
   }
 
   .section,
-  .hero-section,
   .content-section,
   .footer-section {
     flex-direction: column;
@@ -1276,6 +1283,15 @@ select.form-input {
     height: auto;
     min-height: auto;
     padding: 80px 40px;
+  }
+
+  /* Hero section needs extra top padding for fixed header */
+  .hero-section {
+    flex-direction: column;
+    width: 100vw !important;
+    height: auto;
+    min-height: auto;
+    padding: 120px 40px 80px 40px;
   }
 
   /* Pattern layouts - Adjusted for tablet */
