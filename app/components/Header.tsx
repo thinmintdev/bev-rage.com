@@ -14,7 +14,13 @@ export default function Header({ sections = [] }: HeaderProps) {
   return (
     <>
       <header className={`fixed-header ${isMenuOpen ? 'menu-open' : ''}`}>
-        <div className="brand-text">Bev-Rage | Specialty Drink Bars</div>
+        <Link href="/" className="brand-text-link">
+          <div className="brand-text">
+            <span className="brand-text">Bev-Rage</span>
+            <span className="brand-separator"> | </span>
+            <span className="brand-tagline">Specialty Drink Bars</span>
+          </div>
+        </Link>
         <Link href="/" className="logo">
           <span className="logo-text">br</span>
         </Link>

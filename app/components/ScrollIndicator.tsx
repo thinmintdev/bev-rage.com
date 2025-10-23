@@ -46,7 +46,16 @@ export default function ScrollIndicator({ sections }: ScrollIndicatorProps) {
       const bodyHeight = document.body.offsetHeight;
       const viewportHeight = window.innerHeight;
       const maxScroll = bodyHeight - viewportHeight;
-      const targetScroll = (index / sections.length) * maxScroll;
+
+      // Calculate target scroll position
+      // For the last section, scroll to the very end
+      let targetScroll;
+      if (index === sections.length - 1) {
+        targetScroll = maxScroll;
+      } else {
+        // Distribute sections evenly across the scrollable range
+        targetScroll = (index / (sections.length - 1)) * maxScroll;
+      }
 
       window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     }

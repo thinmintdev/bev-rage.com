@@ -437,7 +437,15 @@ body {
   background: var(--color-brown-dark);
 }
 
-.fixed-header.menu-open .brand-text,
+.fixed-header.menu-open .brand-text {
+  color: var(--color-beige);
+}
+
+.fixed-header.menu-open .brand-separator,
+.fixed-header.menu-open .brand-tagline {
+  color: var(--color-brown-light);
+}
+
 .fixed-header.menu-open .logo-text,
 .fixed-header.menu-open .btn-menu {
   color: var(--color-beige);
@@ -460,17 +468,39 @@ body {
   padding-top: 40px;
 }
 
-.brand-text {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-dark);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.brand-text-link {
+  text-decoration: none;
   position: absolute;
   left: 40px;
   top: 50%;
   transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+
+.brand-text-link:hover {
+  opacity: 0.7;
+}
+
+.brand-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.brand-name {
+  color: var(--color-brown-light);
+}
+
+.brand-separator {
+  color: var(--color-brown-light);
+}
+
+.brand-tagline {
+  color: var(--color-brown-light);
 }
 
 .btn-request,
@@ -624,7 +654,7 @@ body {
 
 .scroll-indicator {
   position: fixed;
-  bottom: 60px;
+  bottom: 0px;
   left: 20px;
   z-index: 1000;
   display: flex;
@@ -1179,10 +1209,20 @@ select.form-input {
     padding: 16px 20px;
   }
 
+  .brand-text-link {
+    left: 20px;
+  }
+
   .brand-text {
     font-size: 10px;
     max-width: 120px;
-    left: 20px;
+    flex-wrap: wrap;
+    color: var(--color-brown-dark);
+  }
+
+  .brand-tagline {
+    color: var(--color-brown-light);
+    font-size: 10px;
   }
 
   .logo-text {
