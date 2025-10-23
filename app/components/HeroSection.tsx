@@ -7,9 +7,10 @@ interface HeroSectionProps {
   subtitle: string;
   ctaText: string;
   ctaLink: string;
+  imageSrc: string;
 }
 
-export default function HeroSection({ title, subtitle, ctaText, ctaLink }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSrc }: HeroSectionProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,8 +77,8 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink }: HeroS
         viewport={{ once: false, amount: 0.3 }}
         variants={imageVariants}
       >
-        <div className="image-placeholder hero-image portrait">
-          <span className="placeholder-text">Hero Image<br/>(Portrait)</span>
+        <div className="hero-image portrait">
+          <img src={imageSrc} alt={title} />
         </div>
       </motion.div>
     </section>

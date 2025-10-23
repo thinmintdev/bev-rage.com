@@ -279,6 +279,14 @@ body {
   width: 100%;
   height: 70vh;
   border-radius: 0;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-image.portrait {
@@ -318,16 +326,40 @@ body {
   width: 70%;
   height: 50%;
   align-self: flex-start;
+  overflow: hidden;
+}
+
+.stepped-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .stepped-medium {
   width: 55%;
   height: 35%;
+  overflow: hidden;
+}
+
+.stepped-medium img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .stepped-small {
   width: 60%;
   height: 25%;
+  overflow: hidden;
+}
+
+.stepped-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .offset-right {
@@ -1183,6 +1215,12 @@ select.form-input {
     max-height: 60vh;
   }
 
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .hero-image.portrait {
     width: 100%;
     height: auto;
@@ -1202,6 +1240,14 @@ select.form-input {
     height: auto;
     align-self: center !important;
     margin-top: 0 !important;
+  }
+
+  .stepped-large img,
+  .stepped-medium img,
+  .stepped-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .stepped-large {
@@ -1493,6 +1539,12 @@ select.form-input {
     max-height: 75vh;
   }
 
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .image-grid-stepped,
   .image-grid-stepped-triple {
     height: auto;
@@ -1503,6 +1555,14 @@ select.form-input {
   .stepped-medium,
   .stepped-small {
     width: 80% !important;
+  }
+
+  .stepped-large img,
+  .stepped-medium img,
+  .stepped-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Footer - Tablet */

@@ -9,6 +9,11 @@ interface SectionPatternBProps {
   bodyText: string[];
   ctaText: string;
   ctaLink: string;
+  images: {
+    small: string;
+    large: string;
+    medium: string;
+  };
 }
 
 export default function SectionPatternB({
@@ -18,6 +23,7 @@ export default function SectionPatternB({
   bodyText,
   ctaText,
   ctaLink,
+  images,
 }: SectionPatternBProps) {
   const textContainerVariants = {
     hidden: { opacity: 0 },
@@ -108,22 +114,22 @@ export default function SectionPatternB({
       >
         <div className="image-grid-stepped-triple">
           <motion.div
-            className="image-placeholder stepped-small landscape offset-left"
+            className="stepped-small landscape offset-left"
             variants={imageVariants}
           >
-            <span className="placeholder-text">Landscape Small</span>
+            <img src={images.small} alt={`${sectionLabel} landscape`} />
           </motion.div>
           <motion.div
-            className="image-placeholder stepped-large portrait offset-right"
+            className="stepped-large portrait offset-right"
             variants={imageVariants}
           >
-            <span className="placeholder-text">Portrait<br/>Large</span>
+            <img src={images.large} alt={`${sectionLabel} portrait`} />
           </motion.div>
           <motion.div
-            className="image-placeholder stepped-medium square offset-left"
+            className="stepped-medium square offset-left"
             variants={imageVariants}
           >
-            <span className="placeholder-text">Square<br/>Medium</span>
+            <img src={images.medium} alt={`${sectionLabel} square`} />
           </motion.div>
         </div>
       </motion.div>

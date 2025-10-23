@@ -24,6 +24,7 @@ export default function Home() {
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="About Bev-Rage"
           ctaLink="#about"
+          imageSrc="/stock/AdobeStock_282179354.jpeg"
         />
 
         {/* About Section - Pattern B (Text Left, Images Right) */}
@@ -40,6 +41,11 @@ export default function Home() {
           ]}
           ctaText="Our Story"
           ctaLink="#story"
+          images={{
+            small: '/stock/AdobeStock_320649333.jpeg',
+            large: '/stock/AdobeStock_317418234.jpeg',
+            medium: '/stock/AdobeStock_527932711.jpeg',
+          }}
         />
 
         {/* Services Section - Pattern B (Text Left, Images Right) */}
@@ -54,6 +60,11 @@ export default function Home() {
           ]}
           ctaText="View Services"
           ctaLink="#services"
+          images={{
+            small: '/stock/AdobeStock_431737187.jpeg',
+            large: '/stock/AdobeStock_389047222.jpeg',
+            medium: '/stock/AdobeStock_292993121.jpeg',
+          }}
         />
 
         {/* Contact/FAQ Section - Color Block Pattern */}
