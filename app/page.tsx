@@ -67,13 +67,20 @@ export default function Home() {
           email="hello@bevrage.com"
           phone="+1 (555) 123-4567"
           faqItems={[
-            { question: 'What services do you offer?', answer: 'We offer comprehensive event planning and catering services.' },
-            { question: 'How far in advance should I book?', answer: 'We recommend booking 3-6 months in advance.' },
+            { question: 'What services do you offer?', answer: 'We offer comprehensive event planning and catering services including custom drink bars, beverage catering, and event coordination for weddings, corporate events, and private celebrations.' },
+            { question: 'How far in advance should I book?', answer: 'We recommend booking 3-6 months in advance for peak season events (May-October). For off-season dates, 2-3 months notice is typically sufficient.' },
+            { question: 'What is your service area?', answer: 'We primarily serve the greater metropolitan area and surrounding regions within a 50-mile radius. Travel fees may apply for events outside our standard service area.' },
+            { question: 'Do you accommodate dietary restrictions?', answer: 'Absolutely! We work closely with clients to accommodate all dietary needs including vegan, gluten-free, kosher, and other special requirements. Just let us know your needs when booking.' },
           ]}
         />
       </HorizontalScroll>
 
       <ScrollIndicator sections={sections} />
+
+      {/* Copyright - Bottom Right */}
+      <div className="footer-copyright">
+        <p>©2025 Bev-Rage</p>
+      </div>
     </>
   );
 }
