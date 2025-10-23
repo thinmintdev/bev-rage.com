@@ -435,12 +435,16 @@ body {
 
 .logo {
   text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo-text {
   font-family: 'Pacifico', cursive;
   font-size: 64px;
   color: var(--color-brown-light);
+  display: block;
 }
 
 .brand-text {
