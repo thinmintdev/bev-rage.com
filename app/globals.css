@@ -443,7 +443,7 @@ body {
 
 .fixed-header.menu-open .brand-separator,
 .fixed-header.menu-open .brand-tagline {
-  color: var(--color-brown-light);
+  color: var(--color-beige-dark);
 }
 
 .fixed-header.menu-open .logo-text,
@@ -1227,7 +1227,7 @@ select.form-input {
   }
 
   .brand-text {
-    font-size: 14px;
+    font-size: 10px;
     max-width: 120px;
     flex-wrap: wrap;
     color: var(--color-brown-dark);
