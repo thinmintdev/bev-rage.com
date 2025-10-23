@@ -1,26 +1,664 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Syne:wght@400;600&family=Pacifico&display=swap');
 @import "tailwindcss";
 
+/* ==========================================================================
+   Gran Ander Style - 40/60 Layout System
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Gran Ander Color Palette */
+  --color-beige: #ECE5D5;
+  --color-dark: #222222;
+  --color-burgundy: #803D3B;
+  --color-burgundy-dark: #6F3533;
+  --color-gray: #595959;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-serif: 'Young Serif', serif;
+  --font-sans: 'Syne', sans-serif;
+
+  /* Layout */
+  --column-40: 40%;
+  --column-60: 60%;
+
+  /* Spacing */
+  --spacing-xl: 100px;
+  --spacing-lg: 80px;
+  --spacing-md: 50px;
+  --spacing-sm: 30px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--color-beige);
+}
+
+/* ==========================================================================
+   Horizontal Scroll Container
+   ========================================================================== */
+
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.horizontal-sections {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Section Base Styles
+   ========================================================================== */
+
+.section {
+  flex-shrink: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--color-beige);
+}
+
+.hero-section {
+  width: 100vw;
+}
+
+.content-section {
+  width: 100vw;
+  background: var(--color-beige);
+}
+
+.footer-section {
+  width: 100vw;
+}
+
+/* ==========================================================================
+   Pattern A: Images Left, Text Right (40/60)
+   ========================================================================== */
+
+.pattern-a .image-column {
+  width: var(--column-40);
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pattern-a .text-column {
+  width: var(--column-60);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Pattern B: Text Left, Images Right (35/65)
+   ========================================================================== */
+
+.pattern-b .text-column {
+  width: 35%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pattern-b .image-column {
+  width: 65%;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Hero Section (35/65 Split - Text Left, Image Right)
+   ========================================================================== */
+
+.hero-text-column {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.hero-image-column {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 80px;
+}
+
+/* ==========================================================================
+   Content Wrapper
+   ========================================================================== */
+
+.content-wrapper {
+  max-width: 600px;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-gray);
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-dark);
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.body-content p {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-dark);
+  margin: 0;
+  max-width: 500px;
+}
+
+.cta-link {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--color-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.cta-link:hover {
+  color: var(--color-burgundy);
+}
+
+.cta-link.light {
+  color: var(--color-white);
+}
+
+.cta-link.light:hover {
+  color: var(--color-beige);
+}
+
+/* ==========================================================================
+   Image Placeholders
+   ========================================================================== */
+
+.image-placeholder {
+  background: #D3D3D3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 70vh;
+  border-radius: 0;
+}
+
+.hero-image.portrait {
+  width: 160%;
+  height: 80vh;
+}
+
+/* ==========================================================================
+   Image Orientation Classes
+   ========================================================================== */
+
+.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
+
+/* ==========================================================================
+   Stepped/Staggered Image Grid Layout (Like Gran Ander)
+   ========================================================================== */
+
+.image-grid-stepped {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 80vh;
+  position: relative;
+}
+
+.stepped-large {
+  width: 70%;
+  height: 50%;
+  align-self: flex-start;
+}
+
+.stepped-medium {
+  width: 55%;
+  height: 35%;
+}
+
+.stepped-small {
+  width: 60%;
+  height: 25%;
+}
+
+.offset-right {
+  align-self: flex-end;
+  margin-top: -80px; /* Overlap previous image */
+}
+
+.offset-left {
+  align-self: flex-start;
+  margin-top: -60px; /* Overlap previous image */
+}
+
+/* Reverse pattern for Pattern B */
+.image-grid-stepped.reverse .stepped-medium {
+  width: 65%;
+  height: 40%;
+}
+
+.image-grid-stepped.reverse .stepped-large {
+  width: 75%;
+  height: 55%;
+  margin-top: -100px;
+}
+
+/* ==========================================================================
+   Triple Image Staggered Layout (3 images: left, right, left)
+   ========================================================================== */
+
+.image-grid-stepped-triple {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 80vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-grid-stepped-triple .stepped-small {
+  width: 50%;
+  align-self: flex-start;
+}
+
+.image-grid-stepped-triple .stepped-large {
+  width: 60%;
+  align-self: flex-end;
+  margin-top: -60px;
+}
+
+.image-grid-stepped-triple .stepped-medium {
+  width: 55%;
+  align-self: flex-start;
+  margin-top: -70px;
+}
+
+/* ==========================================================================
+   Legacy Image Grid Layouts (Fallback)
+   ========================================================================== */
+
+.image-grid-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 80vh;
+}
+
+.grid-item-large {
+  flex: 2;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.grid-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.grid-item-medium {
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   Fixed Header
+   ========================================================================== */
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(236, 229, 213, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 54px;
+  color: var(--color-burgundy-dark);
+}
+
+.brand-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-request,
+.btn-menu {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.btn-request:hover,
+.btn-menu:hover {
+  color: var(--color-burgundy);
+}
+
+/* ==========================================================================
+   Scroll Indicator (Footer)
+   ========================================================================== */
+
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.autoscroll-btn {
+  background: transparent;
+  border: 2px solid var(--color-dark);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.autoscroll-btn:hover {
+  background: var(--color-dark);
+}
+
+.section-num {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-dark);
+  transition: color 0.3s ease;
+}
+
+.autoscroll-btn:hover .section-num {
+  color: var(--color-white);
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
+/* ==========================================================================
+   Footer/Contact Section
+   ========================================================================== */
+
+.footer-cta {
+  width: 35%;
+  background: var(--color-burgundy);
+  color: var(--color-white);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-cta-title {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  line-height: 1.3;
+  color: var(--color-white);
+  margin-bottom: 60px;
+}
+
+.footer-info {
+  width: 65%;
+  background: var(--color-beige);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-section {
+  margin-bottom: 50px;
+}
+
+.contact-section h3 {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 15px;
+}
+
+.contact-section p,
+.contact-section a {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--color-dark);
+  margin: 5px 0;
+  text-decoration: none;
+  display: block;
+}
+
+.contact-section a:hover {
+  color: var(--color-burgundy);
+}
+
+.faq-section {
+  margin-bottom: 50px;
+}
+
+.faq-section h3 {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.faq-number {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-gray);
+}
+
+.faq-question {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--color-dark);
+  flex: 1;
+}
+
+.footer-legal {
+  margin-top: auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.footer-legal p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .horizontal-sections {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+  }
+
+  .section,
+  .hero-section,
+  .content-section,
+  .footer-section {
+    flex-direction: column;
+    width: 100vw !important;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .pattern-a .image-column,
+  .pattern-a .text-column,
+  .pattern-b .text-column,
+  .pattern-b .image-column,
+  .hero-text-column,
+  .hero-image-column,
+  .footer-cta,
+  .footer-info {
+    width: 100% !important;
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .section-heading {
+    font-size: 42px;
+  }
+
+  .body-content p {
+    font-size: 16px;
+  }
+
+  .image-grid-stack {
+    height: auto;
+    min-height: 50vh;
+  }
 }
