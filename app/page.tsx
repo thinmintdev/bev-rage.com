@@ -24,7 +24,7 @@ export default function Home() {
       <HorizontalScroll>
         {/* Hero Section */}
         <HeroSection
-          title="Beverage Experiences for Any Occasion."
+          title="We Take Coffee Breaks... Really.. Seriously."
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"

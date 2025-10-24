@@ -87,6 +87,7 @@ body {
   .horizontal-sections {
     gap: 0; /* Sections handle their own spacing via padding */
   }
+
 }
 
 /* ==========================================================================
@@ -183,7 +184,7 @@ body {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: 4.5rem; /* 72px */
+  font-size: 3.2rem; /* 72px */
   font-weight: 400;
   line-height: 1.1;
   color: var(--color-brown-dark);
@@ -193,7 +194,7 @@ body {
 
 .section-heading {
   font-family: var(--font-serif);
-  font-size: 3.375rem; /* 54px */
+  font-size: 2.375rem; /* 38px */
   font-weight: 400;
   line-height: 1.2;
   color: var(--color-brown-dark);
@@ -1582,6 +1583,7 @@ select.form-input {
     flex-direction: column;
     width: 100vw;
     height: auto;
+    padding: auto 0 auto 0;
     transform: none !important;
     
   }
@@ -1735,11 +1737,11 @@ select.form-input {
   }
 
   .hero-title {
-    font-size: 72px;
+    font-size: 48px;
   }
 
   .section-heading {
-    font-size: 48px;
+    font-size: 38px;
   }
 
   .hero-subtitle {
