@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brown-dark': '#4A3728',
-        'brown-light': '#8B7355',
+        'brown-dark': '#35220c',
+        'brown-light': '#63482c',
         'beige': '#ECE5D5',
-        'beige-dark': '#D4C4A8',
-        'burgundy': '#6B2C3E',
-        'dark': '#2C2C2C',
+        'beige-dark': '#D4CBB3',
+        'burgundy': '#803D3B',
+        'dark': '#222222',
       },
       fontFamily: {
         'sans': ['var(--font-sans)', 'system-ui', 'sans-serif'],

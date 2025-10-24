@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 
-interface HeroSectionProps {
+interface ContentHeroSectionProps {
+  sectionNumber: string;
+  sectionLabel: string;
   title: string;
   subtitle: string;
   ctaText: string;
@@ -12,7 +14,17 @@ interface HeroSectionProps {
   buttonLink?: string;
 }
 
-export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSrc, buttonText, buttonLink }: HeroSectionProps) {
+export default function ContentHeroSection({
+  sectionNumber,
+  sectionLabel,
+  title,
+  subtitle,
+  ctaText,
+  ctaLink,
+  imageSrc,
+  buttonText,
+  buttonLink
+}: ContentHeroSectionProps) {
   const handleAutoScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
@@ -116,7 +128,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
   };
 
   return (
-    <section className="section hero-section flex flex-col md:flex-row items-center relative bg-beige w-full md:w-[120vw] h-auto md:h-screen !pt-[100px] !pb-[60px] !px-6 md:my-0 md:!pt-16 md:!pb-16 md:!px-20 lg:!pt-20 lg:!pb-20 lg:!px-16">
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-full md:w-[120vw] h-auto md:h-screen !pt-[60px] !pb-[60px] !px-6 md:my-0 md:!pt-16 md:!pb-16 md:!px-20 lg:!pt-20 lg:!pb-20 lg:!px-16">
       {/* Text Column: 50% on tablet, 35% on desktop */}
       <motion.div
         className="w-full md:w-1/2 lg:w-[35%] flex items-center justify-center px-0 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
@@ -125,19 +137,18 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
         viewport={{ once: false, amount: 0.3 }}
         variants={containerVariants}
       >
-        <div className="max-w-[600px] flex flex-col items-center">
-          {/* "br" Logo Text - Pacifico font, dark brown - Hidden on mobile */}
-          <motion.div
-            className="hidden md:block text-[6rem] md:text-[6rem] lg:text-[12rem] xl:text-[16rem] font-normal leading-none text-center"
-            style={{ fontFamily: 'Pacifico, cursive', color: '#4A3728', marginBottom: '2rem' }}
+        <div className="max-w-[600px] flex flex-col items-center lg:items-start">
+          {/* Section Label */}
+          <motion.p
+            className="font-arvo text-sm md:text-base lg:text-lg font-normal text-brown-light lowercase tracking-wide text-center lg:text-left !mb-10"
             variants={itemVariants}
           >
-            br
-          </motion.div>
+            {sectionNumber} / {sectionLabel}
+          </motion.p>
 
           {/* Title - Dark brown */}
           <motion.h1
-            className="hero-title font-serif text-[2rem] sm:text-[2.25rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] font-normal leading-[1.1] text-brown-dark text-center mt-8 md:mt-0 !mb-8"
+            className="section-heading font-serif text-[2rem] sm:text-[2.25rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] font-normal leading-[1.1] text-brown-dark text-center lg:text-left !mb-10"
             variants={itemVariants}
           >
             {title}
@@ -145,7 +156,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
 
           {/* Subtitle - Responsive scaling */}
           <motion.p
-            className="font-sans text-sm sm:text-base md:text-sm lg:text-xl leading-relaxed text-brown-light text-center max-w-[27.25rem] !mb-10"
+            className="font-sans text-sm sm:text-base md:text-sm lg:text-xl leading-relaxed text-brown-light text-center lg:text-left max-w-[27.25rem] !mb-10"
             variants={itemVariants}
           >
             {subtitle}
@@ -153,7 +164,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
 
           {/* CTA Group */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-6 !mb-10"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 md:gap-6 !mb-10"
             variants={itemVariants}
           >
             {buttonText && buttonLink && (

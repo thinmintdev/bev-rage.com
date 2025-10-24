@@ -33,7 +33,7 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h3 className="form-title">Request Information</h3>
+      <h3 className="form-title">Request Event Information</h3>
 
       <div className="form-row">
         <div className="form-group">

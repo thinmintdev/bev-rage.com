@@ -103,7 +103,7 @@ export default function ContactSectionB({
           >
             <div className="flex flex-col gap-2">
               <h3 className="font-arvo text-xs md:text-sm lg:text-base font-normal text-brown-light uppercase tracking-wider text-center lg:text-left">
-                Contacts
+                Contact info
               </h3>
               <a
                 href={`mailto:${email}`}

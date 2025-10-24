@@ -2,6 +2,7 @@ import Header from './components/Header';
 import HorizontalScroll from './components/HorizontalScroll';
 import ScrollIndicator from './components/ScrollIndicator';
 import HeroSection from './components/HeroSection';
+import ContentHeroSection from './components/ContentHeroSection';
 import SectionPatternB from './components/SectionPatternB';
 import ContactPatternB from './components/ContactPatternB';
 import ContactSectionB from './components/ContactSectionB';
@@ -23,7 +24,7 @@ export default function Home() {
       <HorizontalScroll>
         {/* Hero Section */}
         <HeroSection
-          title="BevRage"
+          title="Beverage Experiences for Any Occasion."
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"
@@ -36,7 +37,7 @@ export default function Home() {
         <SectionPatternB
           sectionNumber="01"
           sectionLabel="about"
-          headline='Crafting exceptional experiences for 25 years.'
+          headline='25 Years of Delicious Drinks and Unforgettable Events.'
           bodyText={[
             'We believe in creating memorable moments',
             'through thoughtful service and attention to detail.',
@@ -57,7 +58,7 @@ export default function Home() {
         <ServicesSection
           sectionNumber="02"
           sectionLabel="services"
-          headline='Specialty drink services tailored to your event needs.'
+          headline='Specialty Drink Bars Designed Around Your Event.'
           bodyText={[
             'From custom cocktail bars to beverage catering,',
             'we bring exceptional drink experiences to your events.',
@@ -76,22 +77,24 @@ export default function Home() {
           ]}
         />
 
-        {/* Hero Section 2 */}
-        <HeroSection
-          title="Events"
+        {/* Events Section - Content Hero Style */}
+        <ContentHeroSection
+          sectionNumber="03"
+          sectionLabel="events"
+          title="We Take Coffee Breaks Too... Seriously."
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"
           imageSrc="/stock/282179354-min.webp"
-          buttonText="Book Your Event"
+          buttonText="Roasting Info"
           buttonLink="#contact"
         />
 
         {/* Contact Section B - SectionPatternB Layout with Contact Content */}
         <ContactSectionB
-          sectionNumber="03"
+          sectionNumber="04"
           sectionLabel="contact"
-          headline="Let's discuss your event. Send us a message."
+          headline="Get in Touch for Exceptional Beverage Services."
           email="events@bevrage.com"
           phone="+1 (301) 233-3161"
         />
