@@ -58,7 +58,7 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
     // Set body height to enable vertical scrolling that drives horizontal movement
     document.body.style.height = `${scrollDistance + window.innerHeight}px`;
 
-    // Create horizontal scroll animation
+    // Create horizontal scroll animation with performance optimizations
     const animation = gsap.to(main, {
       x: -scrollDistance,
       ease: 'none',
@@ -66,8 +66,9 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
         trigger: document.body,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1,
+        scrub: 0.5, // Reduced from 1 for smoother, more responsive scrolling
         invalidateOnRefresh: true,
+        anticipatePin: 1, // Anticipate pin positioning for smoother performance
       },
     });
 

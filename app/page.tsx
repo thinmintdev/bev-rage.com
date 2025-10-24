@@ -26,7 +26,7 @@ export default function Home() {
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"
-          imageSrc="/stock/opt/282179354-min.jpeg"
+          imageSrc="/stock/282179354-min.webp"
           buttonText="Get Started"
           buttonLink="#contact"
         />
@@ -46,9 +46,9 @@ export default function Home() {
           ctaText="Our Story"
           ctaLink="#story"
           images={{
-            small: '/stock/opt/320649333-min.jpeg',
-            large: '/stock/opt/317418234-min.jpeg',
-            medium: '/stock/opt/527932711-min.jpeg',
+            small: '/stock/320649333-min.webp',
+            large: '/stock/317418234-min.webp',
+            medium: '/stock/527932711-min.webp',
           }}
         />
 
@@ -67,9 +67,9 @@ export default function Home() {
           ctaText="Our Story"
           ctaLink="#story"
           images={{
-            small: '/stock/opt/320649333-min.jpeg',
-            large: '/stock/opt/317418234-min.jpeg',
-            medium: '/stock/opt/527932711-min.jpeg',
+            small: '/stock/320649333-min.webp',
+            large: '/stock/317418234-min.webp',
+            medium: '/stock/527932711-min.webp',
           }}
         />
 
@@ -79,7 +79,7 @@ export default function Home() {
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"
-          imageSrc="/stock/opt/282179354-min.jpeg"
+          imageSrc="/stock/282179354-min.webp"
           buttonText="Get Started"
           buttonLink="#contact"
         />

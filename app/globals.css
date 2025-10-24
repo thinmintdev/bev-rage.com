@@ -61,6 +61,10 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .horizontal-sections {
@@ -70,6 +74,12 @@ body {
   width: max-content;
   will-change: transform;
   gap: 0;
+  /* Optimize rendering performance */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Smooth font rendering during animation */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Add gap between sections on desktop/tablet landscape (1024px+) */
@@ -86,6 +96,9 @@ body {
 .section {
   flex-shrink: 0;
   /* Tailwind handles: height, display, flex, align-items, position, background */
+  /* Performance optimizations */
+  contain: layout style paint;
+  content-visibility: auto;
 }
 
 .hero-section {
