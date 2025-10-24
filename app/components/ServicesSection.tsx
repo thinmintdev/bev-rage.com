@@ -2,21 +2,17 @@
 
 import { motion } from 'framer-motion';
 
-interface SectionPatternBProps {
+interface ServicesSectionProps {
   sectionNumber: string;
   sectionLabel: string;
   headline: string;
   bodyText: string[];
   ctaText: string;
   ctaLink: string;
-  images: {
-    small: string;
-    large: string;
-    medium: string;
-  };
+  images: string[];
 }
 
-export default function SectionPatternB({
+export default function ServicesSection({
   sectionNumber,
   sectionLabel,
   headline,
@@ -24,7 +20,7 @@ export default function SectionPatternB({
   ctaText,
   ctaLink,
   images,
-}: SectionPatternBProps) {
+}: ServicesSectionProps) {
   const textContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -46,33 +42,33 @@ export default function SectionPatternB({
     },
   };
 
-  const imageContainerVariants = {
+  const gridContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         delayChildren: 0.3,
       },
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: 80 },
+  const gridItemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
-      x: 0,
+      scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
       },
     },
   };
 
   return (
     <section className="section flex flex-col md:flex-row items-center relative bg-beige w-[120vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
-      {/* Text Column: 50% on tablet, 35% on desktop */}
+      {/* Text Column: 40% on tablet, 35% on desktop */}
       <motion.div
-        className="w-full md:w-[1/2] lg:w-[100%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
+        className="w-full md:w-[40%] lg:w-[35%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -129,52 +125,31 @@ export default function SectionPatternB({
         </div>
       </motion.div>
 
-      {/* Image Column: 50% on tablet, 65% on desktop */}
+      {/* Image Grid Column: 60% on tablet, 65% on desktop */}
       <motion.div
-        className="w-full md:w-1/2 lg:w-[65%] flex flex-col justify-center px-5 md:px-10 lg:px-16 xl:px-20"
+        className="w-full md:w-[60%] lg:w-[65%] flex flex-col justify-center px-5 md:px-10 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
-        variants={imageContainerVariants}
+        variants={gridContainerVariants}
       >
-        {/* Triple Image Grid - Mobile: stacked, Desktop: staggered */}
-        <div className="flex flex-col gap-5 md:gap-7 lg:gap-[30px] h-auto lg:h-[80vh] relative justify-center items-center lg:mt-[150px]">
-          {/* Small Landscape Image */}
-          <motion.div
-            className="w-full md:w-full lg:w-[65%] h-auto min-h-[200px] md:min-h-[300px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[4/3] self-center lg:self-start"
-            style={{ marginTop: 0 }}
-            variants={imageVariants}
-          >
-            <img
-              src={images.small}
-              alt={`${sectionLabel} landscape`}
-              className="w-full h-full object-cover object-center"
-            />
-          </motion.div>
-
-          {/* Large Portrait Image */}
-          <motion.div
-            className="w-full md:w-full lg:w-[75%] h-auto min-h-[300px] md:min-h-[400px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[3/4] self-end lg:-mt-[60px] lg:ml-[25%]"
-            variants={imageVariants}
-          >
-            <img
-              src={images.large}
-              alt={`${sectionLabel} portrait`}
-              className="w-full h-full object-cover object-center"
-            />
-          </motion.div>
-
-          {/* Medium Square Image */}
-          <motion.div
-            className="w-full md:w-full lg:w-[70%] h-auto min-h-[250px] md:min-h-[350px] lg:min-h-0 lg:h-auto overflow-hidden aspect-square self-center lg:self-start lg:-mt-[70px]"
-            variants={imageVariants}
-          >
-            <img
-              src={images.medium}
-              alt={`${sectionLabel} square`}
-              className="w-full h-full object-cover object-center"
-            />
-          </motion.div>
+        {/* 3x2 Grid of Thumbnails */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
+          {images.slice(0, 6).map((image, index) => (
+            <motion.div
+              key={index}
+              className="w-full h-auto overflow-hidden aspect-[4/3] rounded-lg"
+              variants={gridItemVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={image}
+                alt={`${sectionLabel} ${index + 1}`}
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

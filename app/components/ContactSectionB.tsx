@@ -62,7 +62,7 @@ export default function ContactSectionB({
   };
 
   return (
-    <section className="section flex flex-col md:flex-row items-center relative bg-beige xl:w-[80vw] md:w-[120vw] w-[100vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige xl:w-[120vw] md:w-[120vw] w-[100vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
       {/* Text Column: 50% on all viewports */}
       <motion.div
         className="w-full md:w-1/2 lg:w-1/2 flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
@@ -74,7 +74,7 @@ export default function ContactSectionB({
         <div className="md:max-w-[400px] lg:max-w-[600px] flex flex-col items-center lg:items-start">
           {/* Section Label */}
           <motion.p
-            className="font-sans text-sm md:text-base lg:text-lg font-semibold text-brown-light lowercase tracking-wide text-center lg:text-left"
+            className="font-arvo text-sm md:text-base lg:text-lg font-normal text-brown-light lowercase tracking-wide text-center lg:text-left"
             style={{ marginBottom: '2.5rem' }}
             variants={textItemVariants}
           >
@@ -102,7 +102,7 @@ export default function ContactSectionB({
             variants={textItemVariants}
           >
             <div className="flex flex-col gap-2">
-              <h3 className="font-sans text-xs md:text-sm lg:text-base font-semibold text-brown-light uppercase tracking-wider text-center lg:text-left">
+              <h3 className="font-arvo text-xs md:text-sm lg:text-base font-normal text-brown-light uppercase tracking-wider text-center lg:text-left">
                 Contacts
               </h3>
               <a

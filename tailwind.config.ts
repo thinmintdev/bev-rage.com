@@ -20,6 +20,7 @@ const config: Config = {
         'sans': ['var(--font-sans)', 'system-ui', 'sans-serif'],
         'serif': ['var(--font-serif)', 'Georgia', 'serif'],
         'cursive': ['Pacifico', 'cursive'],
+        'arvo': ['var(--font-arvo)', 'serif'],
       },
       spacing: {
         'xl': '7.5rem',   // 120px

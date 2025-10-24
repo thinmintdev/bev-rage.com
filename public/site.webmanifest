@@ -1,0 +1,19 @@
+{
+  "name": "BevRage - Exceptional Event Experiences",
+  "short_name": "BevRage",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#8B4513",
+  "background_color": "#F5E6D3",
+  "display": "standalone"
+}

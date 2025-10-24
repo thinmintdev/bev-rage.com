@@ -26,6 +26,29 @@ export default function Header({ sections = [] }: HeaderProps) {
     }
   };
 
+  const scrollToSection = (index: number) => {
+    const isMobile = window.innerWidth < 1024;
+
+    if (isMobile) {
+      // Mobile/Tablet: Scroll to specific section
+      const sectionElements = document.querySelectorAll('.section');
+      const targetSection = sectionElements[index];
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Desktop: Calculate horizontal scroll position
+      const sections = document.querySelectorAll('.section');
+      let scrollDistance = 0;
+
+      for (let i = 0; i < index && i < sections.length; i++) {
+        scrollDistance += sections[i].clientWidth;
+      }
+
+      window.scrollTo({ top: scrollDistance, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className={`fixed-header ${isMenuOpen ? 'menu-open' : ''}`}>
@@ -39,6 +62,20 @@ export default function Header({ sections = [] }: HeaderProps) {
         <button onClick={scrollToHome} className="logo">
           <span className="logo-text">br</span>
         </button>
+
+        {/* Navigation Links */}
+        <nav className="header-nav">
+          {sections.slice(1).map((section, index) => (
+            <button
+              key={section.number}
+              onClick={() => scrollToSection(index + 1)}
+              className="nav-link"
+            >
+              {section.label}
+            </button>
+          ))}
+        </nav>
+
         <button
           className="btn-menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

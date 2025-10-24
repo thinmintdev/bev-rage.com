@@ -565,9 +565,9 @@ body {
 }
 
 .brand-text {
-  font-family: var(--font-sans);
+  font-family: var(--font-arvo);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
   display: flex;
@@ -618,6 +618,40 @@ body {
 
 .fixed-header.menu-open .hamburger-icon {
   color: var(--color-beige);
+}
+
+/* Header Navigation Links */
+.header-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav-link {
+  font-family: var(--font-arvo);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-brown-light);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.nav-link:hover {
+  color: var(--color-burgundy);
+}
+
+.fixed-header.menu-open .nav-link {
+  color: var(--color-beige);
+}
+
+.fixed-header.menu-open .nav-link:hover {
+  color: var(--color-beige-dark);
 }
 
 /* ==========================================================================
@@ -737,7 +771,7 @@ body {
 
 .scroll-indicator {
   position: fixed;
-  bottom: 0px;
+  bottom: 40px;
   left: 20px;
   z-index: 1000;
   display: flex;
@@ -827,10 +861,12 @@ body {
 }
 
 .section-label {
-  font-family: var(--font-sans);
+  font-family: var(--font-arvo);
   font-size: 12px;
-  opacity: 0.6;
+  font-weight: 400;
+  opacity: 0;
   padding-left: 4px;
+  display: none;
 }
 
 /* ==========================================================================
@@ -1055,9 +1091,9 @@ body {
 }
 
 .form-title {
-  font-family: var(--font-sans);
+  font-family: var(--font-arvo);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-brown-dark);
@@ -1448,6 +1484,8 @@ select.form-input {
 
   /* Contact Form - Mobile */
   .form-title {
+    font-family: var(--font-arvo);
+    font-weight: 400;
     font-size: 12px;
     margin-bottom: 32px;
   }
