@@ -100,18 +100,17 @@ export default function NavMenu({ isOpen, onClose, sections }: NavMenuProps) {
       <nav className={`nav-menu ${isOpen ? 'open' : ''}`} aria-label="Main navigation">
         <div className="nav-menu-content">
           <div className="nav-menu-grid">
-            {sections.map((section) => (
-              <button
-                key={section.number}
-                className="nav-menu-item"
-                onClick={() => handleSectionClick(section.number)}
-                aria-label={`Navigate to ${section.name}`}
-              >
-                <div className="nav-menu-thumbnail">
-                  <span className="thumbnail-placeholder">{section.number}</span>
-                </div>
-                <p className="nav-menu-label">{section.name}</p>
-              </button>
+            {sections.map((section, index) => (
+              <div key={section.number}>
+                <button
+                  className="nav-menu-item"
+                  onClick={() => handleSectionClick(section.number)}
+                  aria-label={`Navigate to ${section.name}`}
+                >
+                  <p className="nav-menu-label">{section.name}</p>
+                </button>
+                {index < sections.length - 1 && <hr className="nav-menu-separator" />}
+              </div>
             ))}
           </div>
         </div>

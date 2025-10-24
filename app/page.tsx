@@ -78,12 +78,12 @@ export default function Home() {
 
         {/* Hero Section 2 */}
         <HeroSection
-          title="BevRage"
+          title="Events"
           subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           ctaText="Learn more"
           ctaLink="#about"
           imageSrc="/stock/282179354-min.webp"
-          buttonText="Get Started"
+          buttonText="Book Your Event"
           buttonLink="#contact"
         />
 
