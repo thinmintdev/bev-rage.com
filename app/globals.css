@@ -69,6 +69,14 @@ body {
   height: 100vh;
   width: max-content;
   will-change: transform;
+  gap: 0;
+}
+
+/* Add gap between sections on desktop/tablet landscape (1024px+) */
+@media (min-width: 1024px) {
+  .horizontal-sections {
+    gap: 0; /* Sections handle their own spacing via padding */
+  }
 }
 
 /* ==========================================================================
@@ -77,20 +85,15 @@ body {
 
 .section {
   flex-shrink: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--color-beige);
+  /* Tailwind handles: height, display, flex, align-items, position, background */
 }
 
 .hero-section {
-  width: 100vw;
+  /* Tailwind handles all styling */
 }
 
 .content-section {
-  width: 100vw;
-  background: var(--color-beige);
+  /* Tailwind handles all styling */
 }
 
 .footer-section {
@@ -102,19 +105,11 @@ body {
    ========================================================================== */
 
 .pattern-a .image-column {
-  width: var(--column-40);
-  padding: 60px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* Tailwind handles all styling */
 }
 
 .pattern-a .text-column {
-  width: var(--column-60);
-  padding: var(--spacing-lg) var(--spacing-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* Tailwind handles all styling */
 }
 
 /* ==========================================================================
@@ -122,19 +117,11 @@ body {
    ========================================================================== */
 
 .pattern-b .text-column {
-  width: 35%;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* Tailwind handles all styling */
 }
 
 .pattern-b .image-column {
-  width: 65%;
-  padding: 60px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* Tailwind handles all styling */
 }
 
 /* ==========================================================================
@@ -142,19 +129,11 @@ body {
    ========================================================================== */
 
 .hero-text-column {
-  width: 35%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--spacing-lg) var(--spacing-xl);
+  /* Tailwind handles all styling */
 }
 
 .hero-image-column {
-  width: 65%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 80px;
+  /* Tailwind handles all styling */
 }
 
 /* ==========================================================================
@@ -1190,7 +1169,7 @@ select.form-input {
     width: 100vw !important;
     height: auto;
     min-height: auto;
-    padding: 60px 20px;
+    /* padding: 60px 20px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
   /* Hero section needs extra top padding for fixed header */
@@ -1199,7 +1178,7 @@ select.form-input {
     width: 100vw !important;
     height: auto;
     min-height: auto;
-    padding: 100px 20px 60px 20px;
+    /* padding: 100px 20px 60px 20px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
   /* Pattern layouts - Full width columns */
@@ -1554,7 +1533,7 @@ select.form-input {
     width: 100vw !important;
     height: auto;
     min-height: auto;
-    padding: 80px 40px;
+    /* padding: 80px 40px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
   /* Hero section needs extra top padding for fixed header */
@@ -1563,24 +1542,22 @@ select.form-input {
     width: 100vw !important;
     height: auto;
     min-height: auto;
-    padding: 120px 40px 80px 40px;
+    /* padding: 120px 40px 80px 40px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
   /* Pattern layouts - Adjusted for tablet */
+  /* NOTE: Legacy class names removed - components now use Tailwind utilities directly */
   .pattern-a .image-column,
   .pattern-a .text-column,
   .pattern-b .text-column,
-  .pattern-b .image-column,
-  .hero-text-column,
-  .hero-image-column {
+  .pattern-b .image-column {
     width: 100% !important;
     padding: 0;
     margin-bottom: 48px;
   }
 
-  .hero-image-column {
-    margin-bottom: 0;
-  }
+  /* DO NOT override padding for hero columns - they use Tailwind utilities */
+  /* Removed: .hero-text-column, .hero-image-column overrides */
 
   /* Typography - Tablet scaling */
   .hero-title {

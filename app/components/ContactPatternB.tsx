@@ -1,25 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import FAQAccordion from './FAQAccordion';
+import ContactForm from './ContactForm';
 
-interface ContactSectionProps {
-  ctaTitle: string;
-  ctaText: string;
-  ctaLink: string;
+interface ContactPatternBProps {
+  sectionNumber: string;
+  sectionLabel: string;
+  headline: string;
   email: string;
   phone: string;
-  faqItems?: Array<{ question: string; answer: string }>;
 }
 
-export default function ContactSection({
-  ctaTitle,
-  ctaText,
-  ctaLink,
+export default function ContactPatternB({
+  sectionNumber,
+  sectionLabel,
+  headline,
   email,
   phone,
-  faqItems,
-}: ContactSectionProps) {
+}: ContactPatternBProps) {
   const textContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,7 +39,7 @@ export default function ContactSection({
     },
   };
 
-  const contentContainerVariants = {
+  const formContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -52,8 +50,8 @@ export default function ContactSection({
     },
   };
 
-  const contentVariants = {
-    hidden: { opacity: 0, x: -80 },
+  const formVariants = {
+    hidden: { opacity: 0, x: 80 },
     visible: {
       opacity: 1,
       x: 0,
@@ -64,10 +62,10 @@ export default function ContactSection({
   };
 
   return (
-    <section className="section flex flex-col md:flex-row items-center relative ml-20 bg-beige w-[140vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-[100vw] md:w-[140vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16 md:ml-20 lg:ml-24">
       {/* Text Column: 40% on tablet, 35% on desktop */}
       <motion.div
-        className="md:w-[40%] lg:w-[35%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0 md:ml-[10vw] lg:ml-[12vw]"
+        className="w-full md:w-[40%] lg:w-[35%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -80,7 +78,7 @@ export default function ContactSection({
             style={{ marginBottom: '2.5rem' }}
             variants={textItemVariants}
           >
-            03 / contact
+            {sectionNumber} / {sectionLabel}
           </motion.p>
 
           {/* Section Heading */}
@@ -89,7 +87,12 @@ export default function ContactSection({
             style={{ marginBottom: '3.125rem' }}
             variants={textItemVariants}
           >
-            {ctaTitle}
+            {headline.split('\n').map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < headline.split('\n').length - 1 && <br />}
+              </span>
+            ))}
           </motion.h2>
 
           {/* Contact Information */}
@@ -160,32 +163,20 @@ export default function ContactSection({
               </a>
             </div>
           </motion.div>
-
-          {/* CTA Link */}
-          <motion.a
-            href={ctaLink}
-            className="font-sans text-base md:text-lg lg:text-xl text-brown-light underline underline-offset-1 transition-colors duration-300 ease-in-out inline-block hover:text-burgundy"
-            variants={textItemVariants}
-          >
-            {ctaText} →
-          </motion.a>
         </div>
       </motion.div>
 
-      {/* Content Column: 60% on tablet, 65% on desktop */}
+      {/* Form Column: 60% on tablet, 65% on desktop */}
       <motion.div
         className="w-full md:w-[60%] lg:w-[65%] flex flex-col justify-center px-5 md:px-10 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
-        variants={contentContainerVariants}
+        variants={formContainerVariants}
       >
-        {/* FAQ Section */}
-        {faqItems && faqItems.length > 0 && (
-          <motion.div variants={contentVariants}>
-            <FAQAccordion items={faqItems} />
-          </motion.div>
-        )}
+        <motion.div variants={formVariants}>
+          <ContactForm />
+        </motion.div>
       </motion.div>
     </section>
   );
