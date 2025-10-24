@@ -498,6 +498,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 20px 40px;
+  height: 80px;
   background: rgba(236, 229, 213, 0.9);
   backdrop-filter: blur(10px);
   transition: background 0.3s ease;
@@ -532,6 +533,9 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo:hover {
@@ -540,11 +544,11 @@ body {
 
 .logo-text {
   font-family: 'Pacifico', cursive;
-  font-size: 64px;
+  font-size: 48px;
   color: var(--color-brown-dark);
   display: block;
   line-height: 1;
-  padding-top: 40px;
+  padding: 0;
 }
 
 .brand-text-link {
@@ -622,10 +626,17 @@ body {
 
 /* Header Navigation Links */
 .header-nav {
-  display: flex;
+  display: none;
   gap: 20px;
   align-items: center;
   margin-right: 20px;
+}
+
+/* Show navigation on desktop only (1024px+) */
+@media (min-width: 1024px) {
+  .header-nav {
+    display: flex;
+  }
 }
 
 .nav-link {
@@ -1218,6 +1229,7 @@ select.form-input {
     width: 100vw !important;
     height: auto;
     min-height: auto;
+    scroll-margin-top: 80px; /* Account for fixed header */
     /* padding: 60px 20px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
@@ -1379,7 +1391,7 @@ select.form-input {
   }
 
   .logo-text {
-    font-size: 48px;
+    font-size: 36px;
   }
 
   .btn-menu {
@@ -1575,6 +1587,7 @@ select.form-input {
     width: 100vw;
     height: auto;
     transform: none !important;
+    
   }
 
   .section,
@@ -1583,7 +1596,8 @@ select.form-input {
     flex-direction: column;
     width: 100vw !important;
     height: auto;
-    min-height: auto;
+    min-height: 100vh;
+    justify-content: center;
     /* padding: 80px 40px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 
@@ -1592,7 +1606,8 @@ select.form-input {
     flex-direction: column;
     width: 100vw !important;
     height: auto;
-    min-height: auto;
+    min-height: 100vh;
+    justify-content: center;
     /* padding: 120px 40px 80px 40px; */ /* COMMENTED OUT - Tailwind handles padding */
   }
 

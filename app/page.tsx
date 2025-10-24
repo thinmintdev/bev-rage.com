@@ -9,11 +9,11 @@ import ServicesSection from './components/ServicesSection';
 
 export default function Home() {
   const sections = [
-    { number: '00', label: 'Welcome', name: 'Home' },
-    { number: '01', label: 'Our Mission', name: 'About Us' },
-    { number: '02', label: 'Specialty Drink Bars', name: 'Services' },
-    { number: '03', label: 'Our Mission', name: 'About Us 2' },
-    { number: '04', label: 'Get In Touch', name: 'Contact' },
+    { number: '00', label: 'Home', name: 'Home' },
+    { number: '01', label: 'About', name: 'About Us' },
+    { number: '02', label: 'Drink Bars', name: 'Services' },
+    { number: '03', label: 'Events', name: 'Events' },
+    { number: '04', label: 'Contact Us', name: 'Contact' },
   ];
 
   return (
