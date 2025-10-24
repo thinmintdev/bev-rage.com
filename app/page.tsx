@@ -3,14 +3,16 @@ import HorizontalScroll from './components/HorizontalScroll';
 import ScrollIndicator from './components/ScrollIndicator';
 import HeroSection from './components/HeroSection';
 import SectionPatternB from './components/SectionPatternB';
-import ContactSection from './components/ContactSection';
+import ContactPatternB from './components/ContactPatternB';
+import ContactSectionB from './components/ContactSectionB';
 
 export default function Home() {
   const sections = [
     { number: '00', label: 'Welcome', name: 'Home' },
     { number: '01', label: 'Our Mission', name: 'About Us' },
-    { number: '02', label: 'What We Offer', name: 'Our Services' },
-    { number: '03', label: 'Get In Touch', name: 'Contact' },
+    { number: '02', label: 'Section02', name: 'Section02' },
+    { number: '03', label: 'Our Mission', name: 'About Us 2' },
+    { number: '04', label: 'Get In Touch', name: 'Contact' },
   ];
 
   return (
@@ -50,39 +52,47 @@ export default function Home() {
           }}
         />
 
-        {/* Services Section - Pattern B (Text Left, Images Right) */}
+        {/* Section02 - Pattern B (Text Left, Images Right) */}
         <SectionPatternB
           sectionNumber="02"
-          sectionLabel="services"
-          headline="Specialty drink services tailored to your event needs."
+          sectionLabel="Section02"
+          headline='Crafting exceptional experiences for 25 years.'
           bodyText={[
-            'Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            'We believe in creating memorable moments',
+            'through thoughtful service and attention to detail.',
+            'Our team is dedicated to excellence in',
+            'everything we do, from the smallest gesture',
+            'to the grandest celebration.',
           ]}
-          ctaText="View Services"
-          ctaLink="#services"
+          ctaText="Our Story"
+          ctaLink="#story"
           images={{
-            small: '/stock/opt/431737187-min.jpeg',
-            large: '/stock/opt/389047222-min.jpeg',
-            medium: '/stock/opt/292993121-min.jpeg',
+            small: '/stock/opt/320649333-min.jpeg',
+            large: '/stock/opt/317418234-min.jpeg',
+            medium: '/stock/opt/527932711-min.jpeg',
           }}
         />
 
-        {/* Contact/FAQ Section - Color Block Pattern */}
-        <ContactSection
-          ctaTitle="Have questions? Ready to Book?"
-          ctaText="Get in Touch"
-          ctaLink="#contact"
+        {/* Hero Section 2 */}
+        <HeroSection
+          title="BevRage"
+          subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          ctaText="Learn more"
+          ctaLink="#about"
+          imageSrc="/stock/opt/282179354-min.jpeg"
+          buttonText="Get Started"
+          buttonLink="#contact"
+        />
+
+        {/* Contact Section B - SectionPatternB Layout with Contact Content */}
+        <ContactSectionB
+          sectionNumber="03"
+          sectionLabel="contact"
+          headline="Let's discuss your event. Send us a message."
           email="events@bevrage.com"
           phone="+1 (301) 233-3161"
-          faqItems={[
-            { question: 'What services do you offer?', answer: 'We offer comprehensive event planning and catering services including custom drink bars, beverage catering, and event coordination for weddings, corporate events, and private celebrations.' },
-            { question: 'How far in advance should I book?', answer: 'We recommend booking 3-6 months in advance for peak season events (May-October). For off-season dates, 2-3 months notice is typically sufficient.' },
-            { question: 'What is your service area?', answer: 'We primarily serve the greater metropolitan area and surrounding regions within a 50-mile radius. Travel fees may apply for events outside our standard service area.' },
-            { question: 'Do you accommodate dietary restrictions?', answer: 'Absolutely! We work closely with clients to accommodate all dietary needs including vegan, gluten-free, kosher, and other special requirements. Just let us know your needs when booking.' },
-          ]}
         />
+
       </HorizontalScroll>
 
       <ScrollIndicator sections={sections} />

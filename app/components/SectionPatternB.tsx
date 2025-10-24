@@ -69,10 +69,10 @@ export default function SectionPatternB({
   };
 
   return (
-    <section className="section flex flex-col lg:flex-row items-center relative bg-beige w-screen h-auto lg:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-10 lg:pt-0 lg:pb-0 lg:px-0">
-      {/* 35% Text Column */}
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-[120vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
+      {/* Text Column: 50% on tablet, 35% on desktop */}
       <motion.div
-        className="w-full lg:w-[35%] flex items-center justify-center px-0 lg:px-16 xl:px-20 mb-10 lg:mb-0"
+        className="w-full md:w-[1/2] lg:w-[80%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -90,7 +90,7 @@ export default function SectionPatternB({
 
           {/* Section Heading */}
           <motion.h2
-            className="font-serif text-4xl md:text-5xl lg:text-[3.375rem] font-normal leading-tight text-brown-dark text-center lg:text-left"
+            className="font-serif text-3xl md:text-4xl lg:text-[3.375rem] font-normal leading-tight text-brown-dark text-center lg:text-left"
             style={{ marginBottom: '3.125rem' }}
             variants={textItemVariants}
           >
@@ -111,7 +111,7 @@ export default function SectionPatternB({
             {bodyText.map((line, i) => (
               <p
                 key={i}
-                className="font-sans text-base md:text-lg lg:text-xl leading-relaxed text-dark m-0 max-w-[31.25rem] text-center lg:text-left"
+                className="font-sans text-sm md:text-base lg:text-lg leading-relaxed text-dark m-0 text-center lg:text-left"
               >
                 {line}
               </p>
@@ -129,9 +129,9 @@ export default function SectionPatternB({
         </div>
       </motion.div>
 
-      {/* 65% Image Column with 3-Image Staggered Layout */}
+      {/* Image Column: 50% on tablet, 65% on desktop */}
       <motion.div
-        className="w-full lg:w-[65%] flex flex-col justify-center px-0 lg:px-16 xl:px-20"
+        className="w-full md:w-1/2 lg:w-[65%] flex flex-col justify-center px-5 md:px-10 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -141,7 +141,7 @@ export default function SectionPatternB({
         <div className="flex flex-col gap-5 md:gap-7 lg:gap-[30px] h-auto lg:h-[80vh] relative justify-center items-center lg:mt-[150px]">
           {/* Small Landscape Image */}
           <motion.div
-            className="w-full md:w-4/5 lg:w-1/2 h-auto min-h-[200px] md:min-h-[250px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[4/3] self-center lg:self-start"
+            className="w-full md:w-full lg:w-[65%] h-auto min-h-[200px] md:min-h-[300px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[4/3] self-center lg:self-start"
             style={{ marginTop: 0 }}
             variants={imageVariants}
           >
@@ -154,7 +154,7 @@ export default function SectionPatternB({
 
           {/* Large Portrait Image */}
           <motion.div
-            className="w-full md:w-4/5 lg:w-3/5 h-auto min-h-[300px] md:min-h-[350px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[3/4] self-center lg:self-start lg:-mt-[60px] lg:ml-[25%]"
+            className="w-full md:w-full lg:w-[75%] h-auto min-h-[300px] md:min-h-[400px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[3/4] self-end lg:-mt-[60px] lg:ml-[25%]"
             variants={imageVariants}
           >
             <img
@@ -166,7 +166,7 @@ export default function SectionPatternB({
 
           {/* Medium Square Image */}
           <motion.div
-            className="w-full md:w-4/5 lg:w-[55%] h-auto min-h-[250px] md:min-h-[280px] lg:min-h-0 lg:h-auto overflow-hidden aspect-square self-center lg:self-start lg:-mt-[70px]"
+            className="w-full md:w-full lg:w-[70%] h-auto min-h-[250px] md:min-h-[350px] lg:min-h-0 lg:h-auto overflow-hidden aspect-square self-center lg:self-start lg:-mt-[70px]"
             variants={imageVariants}
           >
             <img
