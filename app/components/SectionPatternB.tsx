@@ -147,6 +147,7 @@ export default function SectionPatternB({
             <img
               src={images.small}
               alt={`${sectionLabel} landscape`}
+              loading="eager"
               className="w-full h-full object-cover object-center"
             />
           </motion.div>
@@ -159,6 +160,7 @@ export default function SectionPatternB({
             <img
               src={images.large}
               alt={`${sectionLabel} portrait`}
+              loading="eager"
               className="w-full h-full object-cover object-center"
             />
           </motion.div>
@@ -171,6 +173,7 @@ export default function SectionPatternB({
             <img
               src={images.medium}
               alt={`${sectionLabel} square`}
+              loading="eager"
               className="w-full h-full object-cover object-center"
             />
           </motion.div>

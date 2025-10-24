@@ -199,6 +199,7 @@ export default function ContentHeroSection({
           <img
             src={imageSrc}
             alt={title}
+            loading="eager"
             className="w-full h-full object-cover object-center"
           />
         </div>

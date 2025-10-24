@@ -145,6 +145,7 @@ export default function ServicesSection({
               <img
                 src={image}
                 alt={`${sectionLabel} ${index + 1}`}
+                loading="eager"
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>

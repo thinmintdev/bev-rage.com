@@ -46,35 +46,63 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
       return;
     }
 
-    // Desktop: Calculate total width for horizontal scroll
-    const sections = main.querySelectorAll('.section');
-    let totalWidth = 0;
-    sections.forEach((section) => {
-      totalWidth += (section as HTMLElement).offsetWidth;
+    // Wait for images to load before calculating scroll distance
+    const images = main.querySelectorAll('img');
+    const imagePromises = Array.from(images).map((img) => {
+      if (img.complete) {
+        return Promise.resolve();
+      }
+      return new Promise((resolve) => {
+        img.addEventListener('load', () => resolve(null));
+        img.addEventListener('error', () => resolve(null));
+      });
     });
 
-    const scrollDistance = totalWidth - window.innerWidth;
+    // Initialize scroll after images load
+    Promise.all(imagePromises).then(() => {
+      // Desktop: Calculate total width for horizontal scroll
+      const sections = main.querySelectorAll('.section');
+      let totalWidth = 0;
+      sections.forEach((section) => {
+        totalWidth += (section as HTMLElement).offsetWidth;
+      });
 
-    // Set body height to enable vertical scrolling that drives horizontal movement
-    document.body.style.height = `${scrollDistance + window.innerHeight}px`;
+      const scrollDistance = totalWidth - window.innerWidth;
 
-    // Create horizontal scroll animation with performance optimizations
-    const animation = gsap.to(main, {
-      x: -scrollDistance,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: document.body,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.5, // Reduced from 1 for smoother, more responsive scrolling
-        invalidateOnRefresh: true,
-        anticipatePin: 1, // Anticipate pin positioning for smoother performance
-      },
+      // Set body height to enable vertical scrolling that drives horizontal movement
+      document.body.style.height = `${scrollDistance + window.innerHeight}px`;
+
+      // Create horizontal scroll animation with performance optimizations
+      const animation = gsap.to(main, {
+        x: -scrollDistance,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.5,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+          onRefresh: () => {
+            // Recalculate on refresh
+            let newTotalWidth = 0;
+            sections.forEach((section) => {
+              newTotalWidth += (section as HTMLElement).offsetWidth;
+            });
+            const newScrollDistance = newTotalWidth - window.innerWidth;
+            document.body.style.height = `${newScrollDistance + window.innerHeight}px`;
+          },
+        },
+      });
+
+      // Refresh ScrollTrigger after a short delay to ensure everything is settled
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     });
 
     // Cleanup
     return () => {
-      animation.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       document.body.style.height = '';
     };

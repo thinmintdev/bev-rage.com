@@ -188,6 +188,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
           <img
             src={imageSrc}
             alt={title}
+            loading="eager"
             className="w-full h-full object-cover object-center"
           />
         </div>
