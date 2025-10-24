@@ -86,7 +86,7 @@ export default function ServicesSection({
 
           {/* Section Heading */}
           <motion.h2
-            className="font-serif text-3xl md:text-4xl lg:text-[3.375rem] font-normal leading-tight text-brown-dark text-center lg:text-left"
+            className="section-heading font-serif text-3xl md:text-4xl lg:text-[3.375rem] font-normal leading-tight !text-brown-dark text-center lg:text-left"
             style={{ marginBottom: '3.125rem' }}
             variants={textItemVariants}
           >

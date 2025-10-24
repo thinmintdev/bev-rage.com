@@ -54,7 +54,7 @@ export default function Header({ sections = [] }: HeaderProps) {
       <header className={`fixed-header ${isMenuOpen ? 'menu-open' : ''}`}>
         <button onClick={scrollToHome} className="brand-text-link">
           <div className="brand-text">
-            <span className="brand-text">Bev-Rage</span>
+            <span className="brand-name">Bev-Rage</span>
             <span className="brand-separator">&nbsp;|&nbsp;</span>
             <span className="brand-tagline">Specialty Drink Bars</span>
           </div>

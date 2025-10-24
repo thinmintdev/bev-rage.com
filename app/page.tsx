@@ -60,10 +60,10 @@ export default function Home() {
           sectionLabel="services"
           headline='Specialty Drink Bars Designed Around Your Event.'
           bodyText={[
-            'From custom cocktail bars to beverage catering,',
-            'we bring exceptional drink experiences to your events.',
-            'Our expert mixologists craft memorable moments',
-            'for weddings, corporate events, and celebrations.',
+            'From custom cocktail bars to classic coffee,',
+            'we provide a full service beverage experience.',
+            'Ripples, Branded Carts, and more - a custom fit',
+            'for each wedding, corporate event, and celebration.',
           ]}
           ctaText="View Services"
           ctaLink="#services"
@@ -94,7 +94,12 @@ export default function Home() {
         <ContactSectionB
           sectionNumber="04"
           sectionLabel="contact"
-          headline="Get in Touch for Exceptional Beverage Services."
+          headline="We've got it from here, Enjoy your party."
+          bodyText={[
+            'Ready to elevate your next event with specialty drinks?',
+            'Contact us to discuss your vision and let us create',
+            'an unforgettable beverage experience for your guests.',
+          ]}
           email="events@bevrage.com"
           phone="+1 (301) 233-3161"
         />
