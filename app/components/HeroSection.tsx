@@ -128,7 +128,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
         <div className="max-w-[600px] flex flex-col items-center">
           {/* "br" Logo Text - Pacifico font, dark brown - Hidden on mobile */}
           <motion.div
-            className="hidden md:block text-[6rem] md:text-[6rem] lg:text-[12rem] xl:text-[16rem] font-normal leading-none text-center"
+            className="hidden md:block text-[4rem] md:text-[4rem] lg:text-[8rem] xl:text-[12rem] font-normal leading-none text-center"
             style={{ fontFamily: 'Pacifico, cursive', color: '#4A3728', marginBottom: '2rem' }}
             variants={itemVariants}
           >
