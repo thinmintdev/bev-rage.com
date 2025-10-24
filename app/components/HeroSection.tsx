@@ -116,10 +116,10 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
   };
 
   return (
-    <section className="section flex flex-col lg:flex-row items-center relative bg-beige w-screen h-auto lg:h-screen pt-[100px] pb-[40px] px-5 md:pt-[120px] md:pb-16 md:px-10 lg:pt-0 lg:pb-0 lg:px-0">
-      {/* 35% Text Column */}
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-[140vw] h-auto md:h-screen pt-[100px] pb-[40px] px-5 md:pt-[120px] md:pb-16 md:px-10 lg:pt-20 lg:pb-20 lg:px-16">
+      {/* Text Column: 50% on tablet, 40% on desktop */}
       <motion.div
-        className="w-full lg:w-[35%] flex items-center justify-center px-0 lg:px-16 xl:px-20 mb-10 lg:mb-0"
+        className="w-full md:w-1/2 lg:w-[40%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -128,7 +128,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
         <div className="max-w-[600px] flex flex-col items-center">
           {/* "br" Logo Text - Pacifico font, dark brown */}
           <motion.div
-            className="text-[8rem] sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] font-normal leading-none text-center"
+            className="text-[6rem] sm:text-[7rem] md:text-[6rem] lg:text-[12rem] xl:text-[16rem] font-normal leading-none text-center"
             style={{ fontFamily: 'Pacifico, cursive', color: '#4A3728', marginBottom: '2rem' }}
             variants={itemVariants}
           >
@@ -137,7 +137,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
 
           {/* Title - Dark brown */}
           <motion.h1
-            className="font-serif text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-normal leading-[1.1] text-center"
+            className="font-serif text-[2rem] sm:text-[2.25rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] font-normal leading-[1.1] text-center"
             style={{ color: '#4A3728', marginBottom: '2rem' }}
             variants={itemVariants}
           >
@@ -146,7 +146,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
 
           {/* Subtitle - Responsive scaling */}
           <motion.p
-            className="font-sans text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-brown-light text-center max-w-[31.25rem]"
+            className="font-sans text-sm sm:text-base md:text-sm lg:text-xl leading-relaxed text-brown-light text-center max-w-[27.25rem]"
             style={{ marginBottom: '2rem' }}
             variants={itemVariants}
           >
@@ -178,9 +178,9 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
         </div>
       </motion.div>
 
-      {/* 65% Image Column */}
+      {/* Image Column: 50% on tablet, 65% on desktop */}
       <motion.div
-        className="w-full lg:w-[65%] flex items-center justify-center px-0 lg:px-16 xl:px-20"
+        className="w-full md:w-1/2 lg:w-[65%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
