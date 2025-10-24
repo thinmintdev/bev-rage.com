@@ -65,7 +65,7 @@ export default function ServicesSection({
   };
 
   return (
-    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-[120vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
+    <section className="section flex flex-col md:flex-row items-center relative bg-beige w-full md:w-[120vw] h-auto md:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-20 lg:pt-20 lg:pb-20 lg:px-16">
       {/* Text Column: 40% on tablet, 35% on desktop */}
       <motion.div
         className="w-full md:w-[40%] lg:w-[35%] flex items-center justify-center px-5 md:px-10 lg:px-16 xl:px-20 mb-10 md:mb-0"
