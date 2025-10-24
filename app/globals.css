@@ -773,7 +773,7 @@ body {
   bottom: 40px;
   left: 20px;
   z-index: 1000;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
