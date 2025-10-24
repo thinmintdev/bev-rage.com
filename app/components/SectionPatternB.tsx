@@ -69,21 +69,31 @@ export default function SectionPatternB({
   };
 
   return (
-    <section className="section content-section pattern-b">
+    <section className="section flex flex-col lg:flex-row items-center relative bg-beige w-screen h-auto lg:h-screen pt-[40px] pb-[40px] px-5 md:pt-16 md:pb-16 md:px-10 lg:pt-0 lg:pb-0 lg:px-0">
       {/* 35% Text Column */}
       <motion.div
-        className="text-column"
+        className="w-full lg:w-[35%] flex items-center justify-center px-0 lg:px-16 xl:px-20 mb-10 lg:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         variants={textContainerVariants}
       >
-        <div className="content-wrapper">
-          <motion.p className="section-label" variants={textItemVariants}>
+        <div className="max-w-[600px] flex flex-col items-center lg:items-start">
+          {/* Section Label */}
+          <motion.p
+            className="font-sans text-sm md:text-base lg:text-lg font-semibold text-brown-light lowercase tracking-wide text-center lg:text-left"
+            style={{ marginBottom: '2.5rem' }}
+            variants={textItemVariants}
+          >
             {sectionNumber} / {sectionLabel}
           </motion.p>
 
-          <motion.h2 className="section-heading" variants={textItemVariants}>
+          {/* Section Heading */}
+          <motion.h2
+            className="font-serif text-4xl md:text-5xl lg:text-[3.375rem] font-normal leading-tight text-brown-dark text-center lg:text-left"
+            style={{ marginBottom: '3.125rem' }}
+            variants={textItemVariants}
+          >
             {headline.split('\n').map((line, i) => (
               <span key={i}>
                 {line}
@@ -92,13 +102,28 @@ export default function SectionPatternB({
             ))}
           </motion.h2>
 
-          <motion.div className="body-content" variants={textItemVariants}>
+          {/* Body Content */}
+          <motion.div
+            className="flex flex-col gap-0"
+            style={{ marginBottom: '3.125rem' }}
+            variants={textItemVariants}
+          >
             {bodyText.map((line, i) => (
-              <p key={i}>{line}</p>
+              <p
+                key={i}
+                className="font-sans text-base md:text-lg lg:text-xl leading-relaxed text-dark m-0 max-w-[31.25rem] text-center lg:text-left"
+              >
+                {line}
+              </p>
             ))}
           </motion.div>
 
-          <motion.a href={ctaLink} className="cta-link" variants={textItemVariants}>
+          {/* CTA Link */}
+          <motion.a
+            href={ctaLink}
+            className="font-sans text-base md:text-lg lg:text-xl text-brown-light underline underline-offset-1 transition-colors duration-300 ease-in-out inline-block hover:text-burgundy"
+            variants={textItemVariants}
+          >
             {ctaText} →
           </motion.a>
         </div>
@@ -106,30 +131,49 @@ export default function SectionPatternB({
 
       {/* 65% Image Column with 3-Image Staggered Layout */}
       <motion.div
-        className="image-column"
+        className="w-full lg:w-[65%] flex flex-col justify-center px-0 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         variants={imageContainerVariants}
       >
-        <div className="image-grid-stepped-triple">
+        {/* Triple Image Grid - Mobile: stacked, Desktop: staggered */}
+        <div className="flex flex-col gap-5 md:gap-7 lg:gap-[30px] h-auto lg:h-[80vh] relative justify-center items-center lg:mt-[150px]">
+          {/* Small Landscape Image */}
           <motion.div
-            className="stepped-small landscape offset-left"
+            className="w-full md:w-4/5 lg:w-1/2 h-auto min-h-[200px] md:min-h-[250px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[4/3] self-center lg:self-start"
+            style={{ marginTop: 0 }}
             variants={imageVariants}
           >
-            <img src={images.small} alt={`${sectionLabel} landscape`} />
+            <img
+              src={images.small}
+              alt={`${sectionLabel} landscape`}
+              className="w-full h-full object-cover object-center"
+            />
           </motion.div>
+
+          {/* Large Portrait Image */}
           <motion.div
-            className="stepped-large portrait offset-right"
+            className="w-full md:w-4/5 lg:w-3/5 h-auto min-h-[300px] md:min-h-[350px] lg:min-h-0 lg:h-auto overflow-hidden aspect-[3/4] self-center lg:self-start lg:-mt-[60px] lg:ml-[25%]"
             variants={imageVariants}
           >
-            <img src={images.large} alt={`${sectionLabel} portrait`} />
+            <img
+              src={images.large}
+              alt={`${sectionLabel} portrait`}
+              className="w-full h-full object-cover object-center"
+            />
           </motion.div>
+
+          {/* Medium Square Image */}
           <motion.div
-            className="stepped-medium square offset-left"
+            className="w-full md:w-4/5 lg:w-[55%] h-auto min-h-[250px] md:min-h-[280px] lg:min-h-0 lg:h-auto overflow-hidden aspect-square self-center lg:self-start lg:-mt-[70px]"
             variants={imageVariants}
           >
-            <img src={images.medium} alt={`${sectionLabel} square`} />
+            <img
+              src={images.medium}
+              alt={`${sectionLabel} square`}
+              className="w-full h-full object-cover object-center"
+            />
           </motion.div>
         </div>
       </motion.div>

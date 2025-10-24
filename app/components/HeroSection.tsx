@@ -116,32 +116,62 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
   };
 
   return (
-    <section className="section hero-section">
+    <section className="section flex flex-col lg:flex-row items-center relative bg-beige w-screen h-auto lg:h-screen pt-[100px] pb-[40px] px-5 md:pt-[120px] md:pb-16 md:px-10 lg:pt-0 lg:pb-0 lg:px-0">
       {/* 35% Text Column */}
       <motion.div
-        className="hero-text-column"
+        className="w-full lg:w-[35%] flex items-center justify-center px-0 lg:px-16 xl:px-20 mb-10 lg:mb-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         variants={containerVariants}
       >
-        <div className="content-wrapper">
-          <motion.div className="hero-logo-text" variants={itemVariants}>
+        <div className="max-w-[600px] flex flex-col items-center">
+          {/* "br" Logo Text - Pacifico font, dark brown */}
+          <motion.div
+            className="text-[8rem] sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] font-normal leading-none text-center"
+            style={{ fontFamily: 'Pacifico, cursive', color: '#4A3728', marginBottom: '2rem' }}
+            variants={itemVariants}
+          >
             br
           </motion.div>
-          <motion.h1 className="hero-title" variants={itemVariants}>
+
+          {/* Title - Dark brown */}
+          <motion.h1
+            className="font-serif text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-normal leading-[1.1] text-center"
+            style={{ color: '#4A3728', marginBottom: '2rem' }}
+            variants={itemVariants}
+          >
             {title}
           </motion.h1>
-          <motion.p className="hero-subtitle" variants={itemVariants}>
+
+          {/* Subtitle - Responsive scaling */}
+          <motion.p
+            className="font-sans text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-brown-light text-center max-w-[31.25rem]"
+            style={{ marginBottom: '2rem' }}
+            variants={itemVariants}
+          >
             {subtitle}
           </motion.p>
-          <motion.div className="hero-cta-group" variants={itemVariants}>
+
+          {/* CTA Group */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-6"
+            variants={itemVariants}
+          >
             {buttonText && buttonLink && (
-              <a href={buttonLink} className="hero-button">
+              <a
+                href={buttonLink}
+                className="font-sans text-base md:text-lg !px-4 !py-1 md:!px-5 md:!py-2 bg-transparent text-brown-light border border-brown-light rounded-full no-underline transition-all duration-300 ease-in-out inline-block cursor-pointer hover:bg-brown-light hover:text-beige hover:scale-105"
+                style={{ padding: '0.75rem 2rem' }}
+              >
                 {buttonText}
               </a>
             )}
-            <a href={ctaLink} className="cta-link cta-link-small" onClick={handleAutoScroll}>
+            <a
+              href={ctaLink}
+              className="font-sans text-base text-brown-light no-underline opacity-80 inline-block transition-all duration-300 ease-in-out hover:opacity-100 hover:text-burgundy underline underline-offset-4"
+              onClick={handleAutoScroll}
+            >
               {ctaText} →
             </a>
           </motion.div>
@@ -150,14 +180,18 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
 
       {/* 65% Image Column */}
       <motion.div
-        className="hero-image-column"
+        className="w-full lg:w-[65%] flex items-center justify-center px-0 lg:px-16 xl:px-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         variants={imageVariants}
       >
-        <div className="hero-image portrait">
-          <img src={imageSrc} alt={title} />
+        <div className="w-full lg:w-full h-auto max-h-[70vh] lg:h-[80vh] overflow-hidden aspect-[3/4]">
+          <img
+            src={imageSrc}
+            alt={title}
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </motion.div>
     </section>
