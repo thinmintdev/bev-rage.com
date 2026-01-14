@@ -21,6 +21,32 @@ export default function ServicesSection({
   ctaLink,
   images,
 }: ServicesSectionProps) {
+  const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>, sectionIndex: number) => {
+    e.preventDefault();
+    const isMobile = window.innerWidth < 1024;
+    const sections = document.querySelectorAll('.section');
+
+    if (isMobile) {
+      const targetSection = sections[sectionIndex];
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      const bodyHeight = document.body.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const maxScroll = bodyHeight - viewportHeight;
+
+      let targetScroll;
+      if (sectionIndex === sections.length - 1) {
+        targetScroll = maxScroll;
+      } else {
+        targetScroll = (sectionIndex / (sections.length - 1)) * maxScroll;
+      }
+
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+  };
+
   const textContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -114,19 +140,20 @@ export default function ServicesSection({
           </motion.div>
 
           {/* CTA Link */}
-          <motion.a
-            href={ctaLink}
-            className="font-sans text-base md:text-lg lg:text-xl text-brown-light underline underline-offset-1 transition-colors duration-300 ease-in-out inline-block hover:text-burgundy !mb-10"
-            variants={textItemVariants}
-          >
-            {ctaText} →
-          </motion.a>
+          <motion.div variants={textItemVariants}>
+            <button
+              onClick={(e) => scrollToSection(e, 3)}
+              className="font-sans text-base text-brown-light opacity-60 inline-block transition-all duration-300 ease-in-out hover:opacity-100 hover:text-burgundy underline underline-offset-4 bg-transparent border-none cursor-pointer"
+            >
+              {ctaText} →
+            </button>
+          </motion.div>
         </div>
       </motion.div>
 
       {/* Image Grid Column: 60% on tablet, 65% on desktop */}
       <motion.div
-        className="w-full md:w-[60%] lg:w-[65%] flex flex-col justify-center px-0 md:px-10 lg:px-16 xl:px-20"
+        className="w-full md:w-[60%] lg:w-[65%] flex flex-col justify-center px-0 md:px-10 lg:px-16 xl:px-20 !mt-16 md:!mt-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}

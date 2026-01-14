@@ -13,6 +13,34 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSrc, buttonText, buttonLink }: HeroSectionProps) {
+  const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>, sectionIndex: number) => {
+    e.preventDefault();
+    const isMobile = window.innerWidth < 1024;
+    const sections = document.querySelectorAll('.section');
+
+    if (isMobile) {
+      // Mobile/Tablet: Direct scroll to section
+      const targetSection = sections[sectionIndex];
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Desktop: Calculate horizontal scroll position
+      const bodyHeight = document.body.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const maxScroll = bodyHeight - viewportHeight;
+
+      let targetScroll;
+      if (sectionIndex === sections.length - 1) {
+        targetScroll = maxScroll;
+      } else {
+        targetScroll = (sectionIndex / (sections.length - 1)) * maxScroll;
+      }
+
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+  };
+
   const handleAutoScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
@@ -156,18 +184,18 @@ export default function HeroSection({ title, subtitle, ctaText, ctaLink, imageSr
             className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-6 !mb-10"
             variants={itemVariants}
           >
-            {buttonText && buttonLink && (
-              <a
-                href={buttonLink}
+            {buttonText && (
+              <button
+                onClick={(e) => scrollToSection(e, 4)}
                 className="font-sans text-base md:text-lg !px-4 !py-1 md:!px-5 md:!py-2 bg-transparent text-brown-light border border-brown-light rounded-full no-underline transition-all duration-300 ease-in-out inline-block cursor-pointer hover:bg-brown-light hover:text-beige hover:scale-105"
                 style={{ padding: '0.75rem 2rem' }}
               >
                 {buttonText}
-              </a>
+              </button>
             )}
             <a
               href={ctaLink}
-              className="font-sans text-base text-brown-light no-underline opacity-80 inline-block transition-all duration-300 ease-in-out hover:opacity-100 hover:text-burgundy underline underline-offset-4"
+              className="font-sans text-base text-brown-light opacity-60 inline-block transition-all duration-300 ease-in-out hover:opacity-100 hover:text-burgundy underline underline-offset-4 bg-transparent border-none cursor-pointer"
               onClick={handleAutoScroll}
             >
               {ctaText} →
