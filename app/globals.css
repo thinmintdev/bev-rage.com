@@ -638,6 +638,7 @@ body {
   gap: 20px;
   align-items: center;
   margin-right: 20px;
+  position: relative;
 }
 
 /* Show navigation on desktop only (1024px+) */
@@ -671,6 +672,31 @@ body {
 
 .fixed-header.menu-open .nav-link:hover {
   color: var(--color-beige-dark);
+}
+
+/* Navigation Sliding Underline Indicator */
+.nav-underline {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-burgundy);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.fixed-header.menu-open .nav-underline {
+  background-color: var(--color-beige);
+}
+
+.nav-link.active {
+  color: var(--color-burgundy);
+}
+
+.fixed-header.menu-open .nav-link.active {
+  color: var(--color-beige);
 }
 
 /* ==========================================================================
@@ -1162,20 +1188,28 @@ select.form-input {
 
 .form-submit {
   background: transparent;
-  border: none;
+  border: 1px solid var(--color-brown-light);
+  border-radius: 9999px;
   font-family: var(--font-sans);
   font-size: 18px;
-  color: var(--color-dark);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--color-brown-light);
+  text-decoration: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0.75rem 2rem;
   margin-top: 20px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .form-submit:hover {
-  color: var(--color-burgundy);
+  background: var(--color-brown-light);
+  color: var(--color-beige);
+  transform: scale(1.05);
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* ==========================================================================

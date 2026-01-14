@@ -2,11 +2,10 @@ import Header from './components/Header';
 import HorizontalScroll from './components/HorizontalScroll';
 import ScrollIndicator from './components/ScrollIndicator';
 import HeroSection from './components/HeroSection';
-import ContentHeroSection from './components/ContentHeroSection';
-import SectionPatternB from './components/SectionPatternB';
-import ContactPatternB from './components/ContactPatternB';
-import ContactSectionB from './components/ContactSectionB';
+import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
+import EventsSection from './components/EventsSection';
+import ContactSection from './components/ContactSection';
 
 export default function Home() {
   const sections = [
@@ -24,17 +23,17 @@ export default function Home() {
       <HorizontalScroll>
         {/* Hero Section */}
         <HeroSection
-          title="We Take Coffee Breaks... Really.. Seriously."
-          subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title="Events Elevated with Exceptional Beverage Experiences."
+          subtitle="Our years of expertise, passion for quality, and commitment to service ensure your event is unforgettable."
           ctaText="Learn more"
           ctaLink="#about"
           imageSrc="/stock/282179354-min.webp"
-          buttonText="Get Started"
+          buttonText="Contact Us"
           buttonLink="#contact"
         />
 
-        {/* About Section - Pattern B (Text Left, Images Right) */}
-        <SectionPatternB
+        {/* About Section */}
+        <AboutSection
           sectionNumber="01"
           sectionLabel="about"
           headline='25 Years of Delicious Drinks and Unforgettable Events.'
@@ -45,11 +44,11 @@ export default function Home() {
             'everything we do, from the smallest gesture',
             'to the grandest celebration.',
           ]}
-          ctaText="Our Story"
-          ctaLink="#story"
+          ctaText="Our Services"
+          ctaLink="#services"
           images={{
-            small: '/stock/320649333-min.webp',
-            large: '/stock/317418234-min.webp',
+            small: '/event_pics/Rolex%20martini%20(Large)%20(1)%20(1).webp',
+            large: '/event_pics/blood-orange%20(Large)%20(1).webp',
             medium: '/stock/527932711-min.webp',
           }}
         />
@@ -58,15 +57,16 @@ export default function Home() {
         <ServicesSection
           sectionNumber="02"
           sectionLabel="services"
-          headline='Specialty Drink Bars Designed Around Your Event.'
+          headline='Specialty Drink Bars For All Tastes and Occasions.'
           bodyText={[
-            'From custom cocktail bars to classic coffee,',
-            'we provide a full service beverage experience.',
-            'Ripples, Branded Carts, and more - a custom fit',
-            'for each wedding, corporate event, and celebration.',
+            'From custom cocktail bars to classic coffee, we provide',
+            'a full service beverage experience.',
+            'We offer custom touches to make your event unforgettable,',
+            'Printed ripples, branded carts, printed products and more',
+            'to elevate your event to the next level.',
           ]}
-          ctaText="View Services"
-          ctaLink="#services"
+          ctaText="Event Gallery"
+          ctaLink="#events"
           images={[
             '/stock/282179354-min.webp',
             '/stock/282429088-min.webp',
@@ -77,28 +77,32 @@ export default function Home() {
           ]}
         />
 
-        {/* Events Section - Content Hero Style */}
-        <ContentHeroSection
+        {/* Events Section */}
+        <EventsSection
           sectionNumber="03"
           sectionLabel="events"
-          title="We Take Coffee Breaks Too... Seriously."
-          subtitle="Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          ctaText="Learn more"
+          title="Spectacular Setups and Service for Every Occasion."
+          subtitle="We pride ourselves on presentation and professionalism, ensuring everything looks as delicious as it tastes."
+          ctaText="Schedule a Consultation"
           ctaLink="#about"
-          imageSrc="/stock/282179354-min.webp"
-          buttonText="Roasting Info"
+          images={{
+            primary: '/event_pics/Pourover%20(Large).webp',
+            secondary: '/event_pics/full%20view%20(Large)%20(1).webp',
+          }}
+          buttonText="Get in Touch"
           buttonLink="#contact"
         />
 
-        {/* Contact Section B - SectionPatternB Layout with Contact Content */}
-        <ContactSectionB
+        {/* Contact Section */}
+        <ContactSection
           sectionNumber="04"
           sectionLabel="contact"
-          headline="We've got it from here, Enjoy your party."
+          headline="We've got it from here."
           bodyText={[
             'Ready to elevate your next event with specialty drinks?',
             'Contact us to discuss your vision and let us create',
             'an unforgettable beverage experience for your guests.',
+            'We look forward to working with you!',
           ]}
           email="events@bevrage.com"
           phone="+1 (301) 233-3161"
@@ -110,7 +114,7 @@ export default function Home() {
 
       {/* Copyright - Bottom Right */}
       <div className="footer-copyright">
-        <p>©2025 Bev-Rage</p>
+        <p>©2026 Bev-Rage</p>
       </div>
     </>
   );
